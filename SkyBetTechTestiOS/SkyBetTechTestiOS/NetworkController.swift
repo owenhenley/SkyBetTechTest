@@ -10,6 +10,7 @@ class NetworkController {
     // MARK: - Singleton
     static let shared = NetworkController()
 
+    // MARK: - Properties
     private var baseURL: String {
         let filePath = Bundle.main.path(forResource: "BaseURL", ofType: "plist")
         let plist = NSDictionary(contentsOfFile:filePath!)
@@ -20,22 +21,22 @@ class NetworkController {
     // MARK: - Methods
     /// Fetch all race data.
     ///
-    /// - Parameter completion: A closure for handling the data.
+    /// - Parameter completion: A closure for handling the returned data.
     func fetchRaces(completion: @escaping ([Race]?, Error?) -> Void) {
-        guard var url = URL(string: baseURL) else {
-            return
-        }
+        // URL
+        guard var url = URL(string: baseURL) else { return }
         url.appendPathComponent("SkyBetTechTest")
         url.appendPathComponent("techtest")
         url.appendPathExtension("json")
 
+        // Request
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.httpBody = nil
 
+        // Fetch data
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                // Show alert
                 print("Error: \(#file), \(#function), \(#line), Message: \(error). \(error.localizedDescription)")
                 completion(nil, error)
                 return

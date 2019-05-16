@@ -6,6 +6,7 @@
 import UIKit
 
 class RacesViewController: UITableViewController {
+    
     // MARK: - Properties
     var races = [Race]()
 
@@ -20,10 +21,8 @@ class RacesViewController: UITableViewController {
     /// Fetch all race data.
     private func fetchRaces() {
         NetworkController.shared.fetchRaces { races, error in
-            if error != nil {
-                let ac = UIAlertController(title: "Error", message: "\(String(describing: error))", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(ac, animated: true)
+            if let error = error {
+                self.showErrorAlert(for: error)
                 return
             }
 
@@ -39,6 +38,15 @@ class RacesViewController: UITableViewController {
     /// Setup the navigations options.
     private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    /// Show an alert displaying an error.
+    ///
+    /// - Parameter error: The error to display.
+    private func showErrorAlert(for error: Error) {
+        let ac = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(ac, animated: true)
     }
 
     // MARK: - UITableView
@@ -69,6 +77,9 @@ class RacesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = RaceDetailsViewController()
+        if let rides = races[indexPath.row].rides {
+            detailsVC.rides = rides
+        }
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

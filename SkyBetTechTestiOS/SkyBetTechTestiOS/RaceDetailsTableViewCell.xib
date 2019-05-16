@@ -54,6 +54,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="clothNumberLabel" destination="BWT-0d-TRc" id="oUC-Nh-OWz"/>
+                <outlet property="formSummaryLabel" destination="LeV-GV-yZ8" id="V08-XR-yA9"/>
+                <outlet property="oddsLabel" destination="vHZ-Fd-tA2" id="hWZ-j6-G3s"/>
+            </connections>
             <point key="canvasLocation" x="149.27536231884059" y="140.625"/>
         </tableViewCell>
     </objects>

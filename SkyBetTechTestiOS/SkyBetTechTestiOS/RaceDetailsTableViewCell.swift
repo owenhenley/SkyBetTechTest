@@ -7,15 +7,26 @@ import UIKit
 
 class RaceDetailsTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK: - Outlets
+    @IBOutlet var clothNumberLabel: UILabel!
+    @IBOutlet var formSummaryLabel: UILabel!
+    @IBOutlet var oddsLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: - Properties
+    var ride: Ride? {
+        didSet {
+            updateViews()
+        }
     }
     
+    /// Update the cells labels.
+    private func updateViews() {
+        guard let ride = ride else {
+            return
+        }
+        
+        clothNumberLabel.text = "\(ride.clothNumber)"
+        formSummaryLabel.text = ride.formSummary
+        oddsLabel.text = ride.currentOdds
+    }
 }
