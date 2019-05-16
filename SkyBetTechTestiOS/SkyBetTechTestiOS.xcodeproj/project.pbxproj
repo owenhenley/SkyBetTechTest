@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
+		3EFBB93E228CA4770058976C /* Races.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB93C228CA4770058976C /* Races.storyboard */; };
+		3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB940228CA4770058976C /* AppDelegate.swift */; };
+		3EFBB943228CA4780058976C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB942228CA4780058976C /* Assets.xcassets */; };
+		3EFBB946228CA4780058976C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB944228CA4780058976C /* LaunchScreen.storyboard */; };
+		3EFBB95C228CA68F0058976C /* RaceDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB95B228CA68F0058976C /* RaceDetails.storyboard */; };
+		3EFBB95F228CA6F80058976C /* RaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB95D228CA6F80058976C /* RaceTableViewCell.swift */; };
+		3EFBB960228CA6F80058976C /* RaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB95E228CA6F80058976C /* RaceTableViewCell.xib */; };
+		3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB961228CA70C0058976C /* RaceDetailsTableViewCell.swift */; };
+		3EFBB964228CA70C0058976C /* RaceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB962228CA70C0058976C /* RaceDetailsTableViewCell.xib */; };
+		3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB965228CA7540058976C /* RacesViewController.swift */; };
+		3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EFBB94D228CA4780058976C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFBB925228CA4770058976C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EFBB92C228CA4770058976C;
+			remoteInfo = SkyBetTechTestiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
+		3EFBB92D228CA4770058976C /* SkyBetTechTestiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyBetTechTestiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFBB93D228CA4770058976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Races.storyboard; sourceTree = "<group>"; };
+		3EFBB940228CA4770058976C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EFBB942228CA4780058976C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EFBB945228CA4780058976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3EFBB947228CA4780058976C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EFBB94C228CA4780058976C /* SkyBetTechTestiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyBetTechTestiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFBB952228CA4780058976C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EFBB95B228CA68F0058976C /* RaceDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RaceDetails.storyboard; sourceTree = "<group>"; };
+		3EFBB95D228CA6F80058976C /* RaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceTableViewCell.swift; sourceTree = "<group>"; };
+		3EFBB95E228CA6F80058976C /* RaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceTableViewCell.xib; sourceTree = "<group>"; };
+		3EFBB961228CA70C0058976C /* RaceDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		3EFBB962228CA70C0058976C /* RaceDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		3EFBB965228CA7540058976C /* RacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewController.swift; sourceTree = "<group>"; };
+		3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EFBB92A228CA4770058976C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFBB949228CA4780058976C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EFBB924228CA4770058976C = {
+			isa = PBXGroup;
+			children = (
+				3EFBB92F228CA4770058976C /* SkyBetTechTestiOS */,
+				3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */,
+				3EFBB92E228CA4770058976C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EFBB92E228CA4770058976C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB92D228CA4770058976C /* SkyBetTechTestiOS.app */,
+				3EFBB94C228CA4780058976C /* SkyBetTechTestiOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EFBB92F228CA4770058976C /* SkyBetTechTestiOS */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB930228CA4770058976C /* Models */,
+				3EFBB937228CA4770058976C /* View Controllers */,
+				3EFBB933228CA4770058976C /* Services */,
+				3EFBB93A228CA4770058976C /* Views */,
+				3EFBB93F228CA4770058976C /* Resources */,
+			);
+			path = SkyBetTechTestiOS;
+			sourceTree = "<group>";
+		};
+		3EFBB930228CA4770058976C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3EFBB933228CA4770058976C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		3EFBB937228CA4770058976C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB965228CA7540058976C /* RacesViewController.swift */,
+				3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3EFBB93A228CA4770058976C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB95D228CA6F80058976C /* RaceTableViewCell.swift */,
+				3EFBB95E228CA6F80058976C /* RaceTableViewCell.xib */,
+				3EFBB961228CA70C0058976C /* RaceDetailsTableViewCell.swift */,
+				3EFBB962228CA70C0058976C /* RaceDetailsTableViewCell.xib */,
+				3EFBB93B228CA4770058976C /* Storyboards */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3EFBB93B228CA4770058976C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB93C228CA4770058976C /* Races.storyboard */,
+				3EFBB95B228CA68F0058976C /* RaceDetails.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		3EFBB93F228CA4770058976C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB942228CA4780058976C /* Assets.xcassets */,
+				3EFBB944228CA4780058976C /* LaunchScreen.storyboard */,
+				3EFBB947228CA4780058976C /* Info.plist */,
+				3EFBB940228CA4770058976C /* AppDelegate.swift */,
+				3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBB952228CA4780058976C /* Info.plist */,
+			);
+			path = SkyBetTechTestiOSTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EFBB92C228CA4770058976C /* SkyBetTechTestiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EFBB955228CA4780058976C /* Build configuration list for PBXNativeTarget "SkyBetTechTestiOS" */;
+			buildPhases = (
+				3EFBB929228CA4770058976C /* Sources */,
+				3EFBB92A228CA4770058976C /* Frameworks */,
+				3EFBB92B228CA4770058976C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkyBetTechTestiOS;
+			productName = SkyBetTechTestiOS;
+			productReference = 3EFBB92D228CA4770058976C /* SkyBetTechTestiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3EFBB94B228CA4780058976C /* SkyBetTechTestiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EFBB958228CA4780058976C /* Build configuration list for PBXNativeTarget "SkyBetTechTestiOSTests" */;
+			buildPhases = (
+				3EFBB948228CA4780058976C /* Sources */,
+				3EFBB949228CA4780058976C /* Frameworks */,
+				3EFBB94A228CA4780058976C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EFBB94E228CA4780058976C /* PBXTargetDependency */,
+			);
+			name = SkyBetTechTestiOSTests;
+			productName = SkyBetTechTestiOSTests;
+			productReference = 3EFBB94C228CA4780058976C /* SkyBetTechTestiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EFBB925228CA4770058976C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					3EFBB92C228CA4770058976C = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					3EFBB94B228CA4780058976C = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3EFBB92C228CA4770058976C;
+					};
+				};
+			};
+			buildConfigurationList = 3EFBB928228CA4770058976C /* Build configuration list for PBXProject "SkyBetTechTestiOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3EFBB924228CA4770058976C;
+			productRefGroup = 3EFBB92E228CA4770058976C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EFBB92C228CA4770058976C /* SkyBetTechTestiOS */,
+				3EFBB94B228CA4780058976C /* SkyBetTechTestiOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EFBB92B228CA4770058976C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFBB946228CA4780058976C /* LaunchScreen.storyboard in Resources */,
+				3EFBB93E228CA4770058976C /* Races.storyboard in Resources */,
+				3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */,
+				3EFBB95C228CA68F0058976C /* RaceDetails.storyboard in Resources */,
+				3EFBB943228CA4780058976C /* Assets.xcassets in Resources */,
+				3EFBB960228CA6F80058976C /* RaceTableViewCell.xib in Resources */,
+				3EFBB964228CA70C0058976C /* RaceDetailsTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFBB94A228CA4780058976C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EFBB929228CA4770058976C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFBB95F228CA6F80058976C /* RaceTableViewCell.swift in Sources */,
+				3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */,
+				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,
+				3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */,
+				3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EFBB948228CA4780058976C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EFBB94E228CA4780058976C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EFBB92C228CA4770058976C /* SkyBetTechTestiOS */;
+			targetProxy = 3EFBB94D228CA4780058976C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3EFBB93C228CA4770058976C /* Races.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EFBB93D228CA4770058976C /* Base */,
+			);
+			name = Races.storyboard;
+			sourceTree = "<group>";
+		};
+		3EFBB944228CA4780058976C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EFBB945228CA4780058976C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EFBB953228CA4780058976C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3EFBB954228CA4780058976C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EFBB956228CA4780058976C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				INFOPLIST_FILE = SkyBetTechTestiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.skybet.SkyBetTechTestiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EFBB957228CA4780058976C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				INFOPLIST_FILE = SkyBetTechTestiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.skybet.SkyBetTechTestiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3EFBB959228CA4780058976C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SkyBetTechTestiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.SkyBetTechTestiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyBetTechTestiOS.app/SkyBetTechTestiOS";
+			};
+			name = Debug;
+		};
+		3EFBB95A228CA4780058976C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SkyBetTechTestiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.SkyBetTechTestiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyBetTechTestiOS.app/SkyBetTechTestiOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EFBB928228CA4770058976C /* Build configuration list for PBXProject "SkyBetTechTestiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFBB953228CA4780058976C /* Debug */,
+				3EFBB954228CA4780058976C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EFBB955228CA4780058976C /* Build configuration list for PBXNativeTarget "SkyBetTechTestiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFBB956228CA4780058976C /* Debug */,
+				3EFBB957228CA4780058976C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EFBB958228CA4780058976C /* Build configuration list for PBXNativeTarget "SkyBetTechTestiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EFBB959228CA4780058976C /* Debug */,
+				3EFBB95A228CA4780058976C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3EFBB925228CA4770058976C /* Project object */;
+}
