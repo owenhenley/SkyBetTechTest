@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
+		3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B118228DECDF000ACBCF /* NetworkController.swift */; };
+		3EE2B11B228DED34000ACBCF /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11A228DED34000ACBCF /* Race.swift */; };
+		3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */; };
+		3EE2B11F228DEF5D000ACBCF /* Rides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11E228DEF5D000ACBCF /* Rides.swift */; };
 		3EFBB93E228CA4770058976C /* Races.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB93C228CA4770058976C /* Races.storyboard */; };
 		3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBB940228CA4770058976C /* AppDelegate.swift */; };
 		3EFBB943228CA4780058976C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBB942228CA4780058976C /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
+		3EE2B118228DECDF000ACBCF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		3EE2B11A228DED34000ACBCF /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSummary.swift; sourceTree = "<group>"; };
+		3EE2B11E228DEF5D000ACBCF /* Rides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rides.swift; sourceTree = "<group>"; };
 		3EFBB92D228CA4770058976C /* SkyBetTechTestiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyBetTechTestiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFBB93D228CA4770058976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Races.storyboard; sourceTree = "<group>"; };
 		3EFBB940228CA4770058976C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +109,9 @@
 		3EFBB930228CA4770058976C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3EE2B11A228DED34000ACBCF /* Race.swift */,
+				3EE2B11E228DEF5D000ACBCF /* Rides.swift */,
+				3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		3EFBB933228CA4770058976C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3EE2B118228DECDF000ACBCF /* NetworkController.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -268,10 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFBB95F228CA6F80058976C /* RaceTableViewCell.swift in Sources */,
+				3EE2B11B228DED34000ACBCF /* Race.swift in Sources */,
 				3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */,
+				3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */,
 				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,
+				3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */,
 				3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */,
 				3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */,
+				3EE2B11F228DEF5D000ACBCF /* Rides.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
