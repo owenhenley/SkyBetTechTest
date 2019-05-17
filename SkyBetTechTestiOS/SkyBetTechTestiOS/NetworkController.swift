@@ -5,12 +5,16 @@
 
 import Foundation
 
+/// Class to make all network calls.
+///
+/// Use the static singleton `.shared` to implement.
 class NetworkController {
 
     // MARK: - Singleton
     static let shared = NetworkController()
 
     // MARK: - Properties
+    // Get the base url from a plist. (It has my name in the url.)
     private var baseURL: String {
         let filePath = Bundle.main.path(forResource: "BaseURL", ofType: "plist")
         let plist = NSDictionary(contentsOfFile:filePath!)

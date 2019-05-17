@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F588228F3B580099426A /* RaceDataSource.swift */; };
+		3EB7F58B228F40830099426A /* RaceDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */; };
 		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
 		3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B118228DECDF000ACBCF /* NetworkController.swift */; };
 		3EE2B11B228DED34000ACBCF /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11A228DED34000ACBCF /* Race.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EB7F588228F3B580099426A /* RaceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDataSource.swift; sourceTree = "<group>"; };
+		3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsDataSource.swift; sourceTree = "<group>"; };
 		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
 		3EE2B118228DECDF000ACBCF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		3EE2B11A228DED34000ACBCF /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EB7F587228F3B060099426A /* Supporting Code */ = {
+			isa = PBXGroup;
+			children = (
+				3EB7F588228F3B580099426A /* RaceDataSource.swift */,
+				3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */,
+			);
+			name = "Supporting Code";
+			sourceTree = "<group>";
+		};
 		3EE2B120228E002A000ACBCF /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,7 @@
 			children = (
 				3EFBB965228CA7540058976C /* RacesViewController.swift */,
 				3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */,
+				3EB7F587228F3B060099426A /* Supporting Code */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -289,6 +303,8 @@
 			files = (
 				3EFBB95F228CA6F80058976C /* RaceTableViewCell.swift in Sources */,
 				3EE2B11B228DED34000ACBCF /* Race.swift in Sources */,
+				3EB7F58B228F40830099426A /* RaceDetailsDataSource.swift in Sources */,
+				3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */,
 				3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */,
 				3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */,
 				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,

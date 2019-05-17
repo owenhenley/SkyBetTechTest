@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Cell class for the RaceDetailsViewController.
 class RaceDetailsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -22,6 +23,7 @@ class RaceDetailsTableViewCell: UITableViewCell {
     /// Update the cells labels.
     private func updateViews() {
         guard let ride = ride else {
+            print("Error: Ride data not valid.", #file, #function, #line)
             return
         }
         
