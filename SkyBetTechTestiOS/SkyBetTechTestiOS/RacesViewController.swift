@@ -5,7 +5,10 @@
 
 import UIKit
 
-class RacesViewController: UITableViewController {
+class RacesViewController: BaseViewController {
+
+    // MARK: - Views
+    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
 
     // MARK: - Properties
     private var raceDataSource = RaceDataSource()
@@ -20,10 +23,11 @@ class RacesViewController: UITableViewController {
 
     /// Fetch all race data.
     private func fetchRaces() {
+        handleActivityIndicator(activityIndicator)
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             NetworkController.shared.fetchRaces { races, error in
                 if let error = error {
-                    self?.showErrorAlert(for: error)
+                    self?.showErrorAlert(error: error)
                     return
                 }
 
@@ -31,6 +35,13 @@ class RacesViewController: UITableViewController {
                 self?.raceDataSource.races = races
 
                 self?.reloadDataOnMainThread()
+            }
+
+            if let activityIndicator = self?.activityIndicator {
+                self?.handleActivityIndicator(activityIndicator)
+            }
+            DispatchQueue.main.async {
+                self?.tableView.refreshControl?.endRefreshing()
             }
         }
     }
@@ -40,23 +51,24 @@ class RacesViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    /// Show an alert displaying an error.
-    ///
-    /// - Parameter error: The error to display.
-    private func showErrorAlert(for error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            let ac = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            self?.present(ac, animated: true)
-        }
-    }
-
     // MARK: - UITableView
     /// Setup the table view
     private func setupTableView() {
         let nib = UINib(nibName: "RaceTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceCell")
         tableView.dataSource = raceDataSource
+        pullToRefresh()
+    }
+
+    private func pullToRefresh() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull To Refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
+    @objc private func refresh() {
+        fetchRaces()
     }
 
     /// Reload the table view's data on the main thread.

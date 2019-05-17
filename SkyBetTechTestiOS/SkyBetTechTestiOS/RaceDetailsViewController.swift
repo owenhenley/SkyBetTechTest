@@ -4,8 +4,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class RaceDetailsViewController: UITableViewController {
+class RaceDetailsViewController: BaseViewController {
 
     // MARK: - Properties
     var rideDataSource = RaceDetailsDataSource()
@@ -33,5 +34,14 @@ class RaceDetailsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: "https://m.skybet.com/horse-racing") else {
+            print("There is an issue with the url.", #file, #function, #line)
+            return
+        }
+        let svc = SFSafariViewController(url: url)
+        self.present(svc, animated: true, completion: nil)
     }
 }
