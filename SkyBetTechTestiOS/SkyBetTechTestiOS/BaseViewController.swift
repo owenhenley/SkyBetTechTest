@@ -2,8 +2,6 @@
 //  BaseViewController.swift
 //  SkyBetTechTestiOS
 //
-//  Created by Owen Henley on 17/05/2019.
-//
 
 import UIKit
 

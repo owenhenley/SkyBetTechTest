@@ -9,6 +9,7 @@ import UIKit
 class RaceDetailsDataSource: NSObject, UITableViewDataSource {
 
     var rides = [Ride]()
+    var sortedRides = [Ride]()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rides.count
@@ -20,7 +21,11 @@ class RaceDetailsDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.ride = rides[indexPath.row]
+        if !sortedRides.isEmpty {
+            cell.ride = sortedRides[indexPath.row]
+        } else {
+            cell.ride = rides[indexPath.row]
+        }
 
         return cell
     }

@@ -49,6 +49,8 @@ class RacesViewController: BaseViewController {
     /// Setup the navigations options.
     private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.toolbar.tintColor = .black
     }
 
     // MARK: - UITableView
