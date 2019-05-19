@@ -12,6 +12,8 @@
 		3EB7F58E228F43900099426A /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58D228F43900099426A /* AutoLayout.swift */; };
 		3EB7F590228F489B0099426A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58F228F489B0099426A /* BaseViewController.swift */; };
 		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
+		3ED0CF6F229147E4008BB345 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */; };
+		3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */; };
 		3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B118228DECDF000ACBCF /* NetworkController.swift */; };
 		3EE2B11B228DED34000ACBCF /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11A228DED34000ACBCF /* Race.swift */; };
 		3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */; };
@@ -45,6 +47,9 @@
 		3EB7F58D228F43900099426A /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		3EB7F58F228F489B0099426A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
+		3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
+		3ED0CF702291482D008BB345 /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyBetTechTestiOSTests.swift; sourceTree = "<group>"; };
 		3EE2B118228DECDF000ACBCF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		3EE2B11A228DED34000ACBCF /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSummary.swift; sourceTree = "<group>"; };
@@ -205,7 +210,10 @@
 		3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3ED0CF702291482D008BB345 /* SkyBetTechTestiOSTests-Bridging-Header.h */,
 				3EFBB952228CA4780058976C /* Info.plist */,
+				3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */,
+				3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */,
 			);
 			path = SkyBetTechTestiOSTests;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 					};
 					3EFBB94B228CA4780058976C = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3EFBB92C228CA4770058976C;
 					};
 				};
@@ -335,6 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED0CF6F229147E4008BB345 /* BaseViewControllerTests.swift in Sources */,
+				3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +539,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SkyBetTechTestiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,6 +549,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.SkyBetTechTestiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyBetTechTestiOSTests/SkyBetTechTestiOSTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyBetTechTestiOS.app/SkyBetTechTestiOS";
@@ -548,6 +562,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SkyBetTechTestiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -557,6 +572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.SkyBetTechTestiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyBetTechTestiOSTests/SkyBetTechTestiOSTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyBetTechTestiOS.app/SkyBetTechTestiOS";

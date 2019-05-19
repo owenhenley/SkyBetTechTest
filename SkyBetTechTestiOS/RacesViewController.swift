@@ -41,11 +41,12 @@ class RacesViewController: BaseViewController {
                 self?.reloadDataOnMainThread()
             }
 
-            if let activityIndicator = self?.activityIndicator {
-                self?.handleActivityIndicator(activityIndicator)
-            }
-            DispatchQueue.main.async {
+
+            DispatchQueue.main.async { [weak self] in
                 self?.tableView.refreshControl?.endRefreshing()
+                if let activityIndicator = self?.activityIndicator {
+                    self?.handleActivityIndicator(activityIndicator)
+                }
             }
         }
     }

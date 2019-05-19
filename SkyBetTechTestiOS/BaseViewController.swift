@@ -12,17 +12,15 @@ class BaseViewController: UITableViewController {
     ///
     /// - Parameter activityIndicatior: The `UIActivityIndicatorView` you wish to handle.
     func handleActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
-        DispatchQueue.main.async {
-            if activityIndicator.isAnimating {
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
-            } else {
-                activityIndicator.color = .black
-                activityIndicator.startAnimating()
-                activityIndicator.hidesWhenStopped = true
-                self.view.addSubview(activityIndicator)
-                activityIndicator.centerInSuperview()
-            }
+        if activityIndicator.isAnimating {
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+        } else {
+            activityIndicator.color = .black
+            activityIndicator.startAnimating()
+            activityIndicator.hidesWhenStopped = true
+            self.view.addSubview(activityIndicator)
+            activityIndicator.centerInSuperview()
         }
     }
 
@@ -44,5 +42,4 @@ class BaseViewController: UITableViewController {
             }
         }
     }
-
 }
