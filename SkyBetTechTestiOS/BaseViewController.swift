@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// A base class for most screens to subclass from.
 class BaseViewController: UITableViewController {
 
     /// Show or hide an activity indicatior in the center of the screen.
@@ -30,16 +31,16 @@ class BaseViewController: UITableViewController {
     /// - Parameter error: The error to display.
     func showErrorAlert(error: Error?, message: String = "") {
         if let error = error {
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 let ac = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
-                self?.present(ac, animated: true)
+                self.present(ac, animated: true)
             }
         } else {
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
-                self?.present(ac, animated: true)
+                self.present(ac, animated: true)
             }
         }
     }

@@ -9,9 +9,11 @@ import SafariServices
 class RaceDetailsViewController: BaseViewController {
 
     // MARK: - Properties
+
     var rideDataSource = RaceDetailsDataSource()
 
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -29,6 +31,7 @@ class RaceDetailsViewController: BaseViewController {
     }
 
     // MARK: - Methods
+
     /// Setup the navigation options.
     private func setupNavigation() {
         title = "Race Details"
@@ -41,14 +44,16 @@ class RaceDetailsViewController: BaseViewController {
         toolbarItems = [number, spacer, form, spacer, odds, spacer, reset]
     }
 
-    // MARK: - UITableView
     /// Setup the table view.
     private func setupTableView() {
         let nib = UINib(nibName: "RaceDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceDetailsCell")
         tableView.dataSource = rideDataSource
     }
+}
 
+// MARK: - UITableViewDelegate
+extension RaceDetailsViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -58,6 +63,7 @@ class RaceDetailsViewController: BaseViewController {
             print("There is an issue with the url.", #file, #function, #line)
             return
         }
+        
         let svc = SFSafariViewController(url: url)
         self.present(svc, animated: true, completion: nil)
     }
@@ -65,33 +71,37 @@ class RaceDetailsViewController: BaseViewController {
 
 // MARK: - Sorting Methods
 extension RaceDetailsViewController {
-
+    /// Sort the tableview by cloth number.
     @objc private func sortClothNumber() {
         let sortedRides = rideDataSource.rides.sorted(by: {  $0.clothNumber < $1.clothNumber })
         replaceRides(with: sortedRides)
     }
 
+    /// Sort the tableview by form.
     @objc private func sortFormSummary() {
         // I honestly have no idea what a form summary even is, nor can I seem to accurately find out.
         let sortedRides = rideDataSource.rides.sorted(by: {  $0.formSummary < $1.formSummary })
         replaceRides(with: sortedRides)
     }
 
+    /// Sort the tableview by odds.
     @objc private func sortOdds() {
-        // This could be more accurately sorted by sperating the components based on the "/", and then convert the elements
-        // into Int's, and then divide them to get an accurate current odds result to sort from.
+        // This could possibly be more accurately sorted by sperating the components based on the "/", and then
+        // convert the elements into Int's, and then divide them to get an accurate current odds result to sort from.
+        // Again, a little unsure on how betting works, but im absolutly open to learning!
         let sortedRides = rideDataSource.rides.sorted(by: {  $0.currentOdds < $1.currentOdds })
         replaceRides(with: sortedRides)
     }
 
+    /// Reset the tableview to the original order.
     @objc private func resetData() {
         rideDataSource.sortedRides.removeAll()
         tableView.reloadData()
     }
 
+    /// Helper method to set the dataSource's sorted rides.
     private func replaceRides(with rides: [Ride]) {
         rideDataSource.sortedRides = rides
         tableView.reloadData()
     }
-
 }

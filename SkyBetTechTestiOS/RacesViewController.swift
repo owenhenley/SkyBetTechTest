@@ -5,15 +5,19 @@
 
 import UIKit
 
+/// Class for the `Races` tableview screen.
 class RacesViewController: BaseViewController {
 
     // MARK: - Views
+
     private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
 
     // MARK: - Properties
+
     private var raceDataSource = RaceDataSource()
 
     // MARK: - Lifecyle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -22,7 +26,7 @@ class RacesViewController: BaseViewController {
     }
 
     /// Fetch all race data.
-    private func fetchRaces() {
+    @objc private func fetchRaces() {
         handleActivityIndicator(activityIndicator)
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             NetworkController.shared.fetchRaces { races, error in
@@ -54,6 +58,7 @@ class RacesViewController: BaseViewController {
     }
 
     // MARK: - UITableView
+    
     /// Setup the table view
     private func setupTableView() {
         let nib = UINib(nibName: "RaceTableViewCell", bundle: nil)
@@ -62,15 +67,11 @@ class RacesViewController: BaseViewController {
         pullToRefresh()
     }
 
+    /// Implements a pull to refesh feature to the `tableView`.
     private func pullToRefresh() {
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull To Refresh")
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(fetchRaces), for: .valueChanged)
         tableView.refreshControl = refreshControl
-    }
-
-    @objc private func refresh() {
-        fetchRaces()
     }
 
     /// Reload the table view's data on the main thread.
@@ -79,8 +80,10 @@ class RacesViewController: BaseViewController {
             self?.tableView.reloadData()
         }
     }
+}
 
-    // MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
+extension RacesViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }

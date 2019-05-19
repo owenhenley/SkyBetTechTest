@@ -11,10 +11,12 @@ import Foundation
 class NetworkController {
 
     // MARK: - Singleton
+
     static let shared = NetworkController()
 
     // MARK: - Properties
-    // Get the base url from a plist. (It has my name in the url.)
+
+    // Get the base url from a plist. (It has my name in the url...)
     private var baseURL: String {
         let filePath = Bundle.main.path(forResource: "BaseURL", ofType: "plist")
         let plist = NSDictionary(contentsOfFile:filePath!)
@@ -23,6 +25,7 @@ class NetworkController {
     }
 
     // MARK: - Methods
+    
     /// Fetch all race data.
     ///
     /// - Parameter completion: A closure for handling the returned data.

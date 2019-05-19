@@ -9,18 +9,22 @@ import UIKit
 class RaceDetailsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
+
     @IBOutlet var clothNumberLabel: UILabel!
     @IBOutlet var formSummaryLabel: UILabel!
     @IBOutlet var oddsLabel: UILabel!
 
     // MARK: - Properties
+
     var ride: Ride? {
         didSet {
             updateViews()
         }
     }
+
+    // MARK: - Methods
     
-    /// Update the cells labels.
+    /// Update the cell's labels.
     private func updateViews() {
         guard let ride = ride else {
             print("Error: Ride data not valid.", #file, #function, #line)

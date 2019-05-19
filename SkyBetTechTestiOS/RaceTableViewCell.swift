@@ -9,17 +9,21 @@ import UIKit
 class RaceTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
+
     @IBOutlet var raceNameLabel: UILabel!
     @IBOutlet var courseNameLabel: UILabel!
     @IBOutlet var raceDateLabel: UILabel!
 
     // MARK: - Properties
+
     var race: Race? {
         didSet {
             updateViews()
         }
     }
-    
+
+    // MARK: - Methods
+
     /// Update the cell's labels.
     private func updateViews() {
         guard let race = race else {
