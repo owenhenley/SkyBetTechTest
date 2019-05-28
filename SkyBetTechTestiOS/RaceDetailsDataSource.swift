@@ -17,8 +17,7 @@ class RaceDetailsDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "raceDetailsCell", for: indexPath) as? RaceDetailsTableViewCell else {
-            print("Using a default table view cell")
-            return UITableViewCell()
+            fatalError("Can't use custom cell")
         }
 
         if !sortedRides.isEmpty {

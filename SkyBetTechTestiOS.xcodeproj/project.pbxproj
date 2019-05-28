@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
+		3EA697D3229C1E7C007FA700 /* OHActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */; };
 		3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F588228F3B580099426A /* RaceDataSource.swift */; };
 		3EB7F58B228F40830099426A /* RaceDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */; };
 		3EB7F58E228F43900099426A /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58D228F43900099426A /* AutoLayout.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
+		3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHActivityIndicator.swift; sourceTree = "<group>"; };
 		3EB7F588228F3B580099426A /* RaceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDataSource.swift; sourceTree = "<group>"; };
 		3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsDataSource.swift; sourceTree = "<group>"; };
 		3EB7F58D228F43900099426A /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				3EB7F58D228F43900099426A /* AutoLayout.swift */,
+				3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */,
+				3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -331,11 +337,13 @@
 				3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */,
 				3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */,
 				3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */,
+				3EA697D3229C1E7C007FA700 /* OHActivityIndicator.swift in Sources */,
 				3EB7F58E228F43900099426A /* AutoLayout.swift in Sources */,
 				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,
 				3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */,
 				3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */,
 				3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */,
+				3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */,
 				3EE2B11F228DEF5D000ACBCF /* Ride.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

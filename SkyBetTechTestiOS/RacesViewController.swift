@@ -8,10 +8,6 @@ import UIKit
 /// Class for the `Races` tableview screen.
 class RacesViewController: BaseViewController {
 
-    // MARK: - Views
-
-    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-
     // MARK: - Properties
 
     private var raceDataSource = RaceDataSource()
@@ -22,31 +18,38 @@ class RacesViewController: BaseViewController {
         super.viewDidLoad()
         setupTableView()
         setupNavigation()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchRaces()
     }
 
     /// Fetch all race data.
     @objc private func fetchRaces() {
-        handleActivityIndicator(activityIndicator)
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            NetworkController.shared.fetchRaces { races, error in
+        OHActivityIndicator.start(for: self.view)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            NetworkController().fetchRaces { races, error in
+                defer {
+                    OHActivityIndicator.stop()
+                }
+
                 if let error = error {
                     self?.showErrorAlert(error: error)
                     return
                 }
 
-                guard let races = races else { return }
+                guard let races = races else {
+                    print("Error getting races")
+                    return
+                }
                 self?.raceDataSource.races = races
-
                 self?.reloadDataOnMainThread()
             }
 
 
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.refreshControl?.endRefreshing()
-                if let activityIndicator = self?.activityIndicator {
-                    self?.handleActivityIndicator(activityIndicator)
-                }
             }
         }
     }

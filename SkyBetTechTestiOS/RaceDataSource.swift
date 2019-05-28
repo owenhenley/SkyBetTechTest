@@ -16,8 +16,7 @@ class RaceDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "raceCell", for: indexPath) as? RaceTableViewCell else {
-            print("Using a default table view cell")
-            return UITableViewCell()
+            fatalError("Can't use custom cell")
         }
 
         cell.race = races[indexPath.row]

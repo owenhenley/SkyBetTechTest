@@ -6,13 +6,7 @@
 import Foundation
 
 /// Class to make all network calls.
-///
-/// Use the static singleton `.shared` to implement.
 class NetworkController {
-
-    // MARK: - Singleton
-
-    static let shared = NetworkController()
 
     // MARK: - Properties
 
@@ -37,9 +31,7 @@ class NetworkController {
         url.appendPathExtension("json")
 
         // Request
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.httpBody = nil
+        let request = URLRequest(url: url, method: .get)
 
         // Fetch data
         URLSession.shared.dataTask(with: request) { (data, response, error) in
