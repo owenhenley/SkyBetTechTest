@@ -39,6 +39,10 @@ class RaceDetailsViewController: UITableViewController {
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let reset = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetData))
         toolbarItems = [number, spacer, form, spacer, odds, spacer, reset]
+        if #available(iOS 13.0, *) {
+            navigationController?.toolbar.tintColor = UITraitCollection.current.userInterfaceStyle == .dark ? .white : .black
+            navigationController?.navigationBar.tintColor = UITraitCollection.current.userInterfaceStyle == .dark ? .white : .black
+        }
     }
 
     /// Setup the table view.
