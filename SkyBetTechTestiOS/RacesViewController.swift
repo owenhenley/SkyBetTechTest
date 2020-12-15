@@ -32,7 +32,7 @@ class RacesViewController: UITableViewController {
                 }
 
                 if let error = error {
-                    ErrorAlert.show(error: error, on: self)
+                    Alert.show(error: error, on: self)
                     return
                 }
 
@@ -89,7 +89,7 @@ class RacesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = RaceDetailsViewController()
         if let rides = raceDataSource.races[indexPath.row].rides {
-            detailsVC.rideDataSource.rides = rides
+            detailsVC.rides = rides
 
             navigationController?.pushViewController(detailsVC, animated: true)
         }
