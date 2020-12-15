@@ -32,7 +32,10 @@ class RacesViewController: UITableViewController {
                 }
 
                 if let error = error {
-                    Alert.show(error: error, on: self)
+                    Alert.show(error: error,
+                               on: self,
+                               title: "Oops",
+                               message: "There was an problem fetching the races, please check your internet connection")
                     return
                 }
 

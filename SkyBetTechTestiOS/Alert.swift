@@ -8,7 +8,7 @@
 import UIKit
 
 class Alert: NSObject {
-    class func show(error: Error?, on view: UIViewController, message: String = "", actions: [UIAlertAction]? = nil) {
+    class func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil) {
         if let error = error {
             DispatchQueue.main.async {
                 let alertController = UIAlertController(title: "Error",
@@ -19,7 +19,7 @@ class Alert: NSObject {
             }
         } else {
             DispatchQueue.main.async {
-                let alertController = UIAlertController(title: "Something's Wrong",
+                let alertController = UIAlertController(title: title,
                                                         message: message,
                                                         preferredStyle: .alert)
                 addActions(actions: actions, to: alertController)

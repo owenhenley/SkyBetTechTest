@@ -7,7 +7,7 @@ import UIKit
 import LocalAuthentication
 
 protocol BetAlertProtocol: AnyObject {
-    func showAlert(error: Error?, message: String, actions: [UIAlertAction]?)
+    func showAlert(error: Error?, title: String, message: String, customActions: [UIAlertAction]?)
 }
 
 /// Cell class for the RaceDetailsViewController.
@@ -58,20 +58,27 @@ class RaceDetailsTableViewCell: UITableViewCell {
                 DispatchQueue.main.async {
                     if success {
                         // Show success
-                        
-                        
-                        let goToSettings = UIAlertAction(title: "Settings", style: .default) { _ in
-                            self.goToDeviceSettings()
-                        }
-                        
-                        self.alertDelegate.showAlert(error: nil, message: "You need to allow access to FaceID/TouchID to place a bet.", actions: [goToSettings])
+                        self.alertDelegate.showAlert(error: nil,
+                                                     title: "Your bet is in!",
+                                                     message: "May the odds be ever in your favour.",
+                                                     customActions: nil)
                     } else {
-                        // error
+                        self.alertDelegate.showAlert(error: nil,
+                                                     title: "Stop right there",
+                                                     message: "Authentication failed. Please try again.",
+                                                     customActions: nil)
                     }
                 }
             }
         } else {
-            goToDeviceSettings()
+            let goToSettings = UIAlertAction(title: "Settings", style: .default) { _ in
+                self.goToDeviceSettings()
+            }
+            
+            self.alertDelegate.showAlert(error: nil,
+                                         title: "Permissions missing",
+                                         message: "You need to allow access to FaceID/TouchID to place a bet.",
+                                         customActions: [goToSettings])
         }
     }
     

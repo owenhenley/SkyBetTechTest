@@ -127,7 +127,11 @@ class RaceDetailsViewController: UITableViewController {
 }
 
 extension RaceDetailsViewController: BetAlertProtocol {
-    func showAlert(error: Error?, message: String, actions: [UIAlertAction]?) {
-        Alert.show(error: error, on: self, message: message, actions: actions)
+    func showAlert(error: Error?, title: String, message: String, customActions: [UIAlertAction]?) {
+        Alert.show(error: error,
+                   on: self,
+                   title: title,
+                   message: message,
+                   actions: customActions)
     }
 }
