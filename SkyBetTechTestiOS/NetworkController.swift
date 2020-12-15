@@ -8,21 +8,17 @@ import Foundation
 /// Class to make all network calls.
 class NetworkController {
 
-    // MARK: - Properties
-
-    // Get the base url from a plist. (It has my name in the url...)
+    // Get the base url from a plist.
     private var baseURL: String {
         let filePath = Bundle.main.path(forResource: "BaseURL", ofType: "plist")
         let plist = NSDictionary(contentsOfFile:filePath!)
         let value = plist?.object(forKey: "baseURL") as! String
         return value
     }
-
-    // MARK: - Methods
     
     /// Fetch all race data.
     ///
-    /// - Parameter completion: A closure for handling the returned data.
+    /// - Parameter completion: handle the returned data.
     func fetchRaces(completion: @escaping ([Race]?, Error?) -> Void) {
         // URL
         guard var url = URL(string: baseURL) else { return }

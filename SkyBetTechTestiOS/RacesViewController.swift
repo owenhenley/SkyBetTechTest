@@ -5,14 +5,9 @@
 
 import UIKit
 
-/// Class for the `Races` tableview screen.
-class RacesViewController: BaseViewController {
-
-    // MARK: - Properties
+class RacesViewController: UITableViewController {
 
     private var raceDataSource = RaceDataSource()
-
-    // MARK: - Lifecyle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +22,17 @@ class RacesViewController: BaseViewController {
 
     /// Fetch all race data.
     @objc private func fetchRaces() {
-        OHActivityIndicator.start(for: self.view)
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        ActivityIndicator.start(for: self.view)
+        DispatchQueue.main.async { [weak self] in
             NetworkController().fetchRaces { races, error in
+                guard let self = self else { return }
+                
                 defer {
-                    OHActivityIndicator.stop()
+                    ActivityIndicator.stop()
                 }
 
                 if let error = error {
-                    self?.showErrorAlert(error: error)
+                    ErrorAlert.show(error: error, on: self)
                     return
                 }
 
@@ -43,22 +40,14 @@ class RacesViewController: BaseViewController {
                     print("Error getting races")
                     return
                 }
-                self?.raceDataSource.races = races
-                self?.reloadDataOnMainThread()
+                self.raceDataSource.races = races
+                self.reloadDataOnMainThread()
             }
-
 
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.refreshControl?.endRefreshing()
             }
         }
-    }
-
-    /// Setup the navigations options.
-    private func setupNavigation() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.toolbar.tintColor = .black
     }
 
     // MARK: - UITableView
@@ -84,10 +73,15 @@ class RacesViewController: BaseViewController {
             self?.tableView.reloadData()
         }
     }
-}
+    
+    private func setupNavigation() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.toolbar.tintColor = .black
+    }
 
 // MARK: - UITableViewDelegate
-extension RacesViewController {
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }

@@ -6,13 +6,9 @@
 import UIKit
 import SafariServices
 
-class RaceDetailsViewController: BaseViewController {
-
-    // MARK: - Properties
+class RaceDetailsViewController: UITableViewController {
 
     var rideDataSource = RaceDetailsDataSource()
-
-    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +32,9 @@ class RaceDetailsViewController: BaseViewController {
     private func setupNavigation() {
         title = "Race Details"
         navigationItem.largeTitleDisplayMode = .never
-        let number = UIBarButtonItem(title: "Cloth #", style: .done, target: self, action: #selector(sortClothNumber))
-        let form = UIBarButtonItem(title: "Form", style: .done, target: self, action: #selector(sortFormSummary))
-        let odds = UIBarButtonItem(title: "Odds", style: .done, target: self, action: #selector(sortOdds))
+        let number = UIBarButtonItem(title: "⇣ Cloth #", style: .done, target: self, action: #selector(sortClothNumber))
+        let form = UIBarButtonItem(title: "⇣ Form", style: .done, target: self, action: #selector(sortFormSummary))
+        let odds = UIBarButtonItem(title: "⇣ Odds", style: .done, target: self, action: #selector(sortOdds))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let reset = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetData))
         toolbarItems = [number, spacer, form, spacer, odds, spacer, reset]
@@ -50,10 +46,10 @@ class RaceDetailsViewController: BaseViewController {
         tableView.register(nib, forCellReuseIdentifier: "raceDetailsCell")
         tableView.dataSource = rideDataSource
     }
-}
+
 
 // MARK: - UITableViewDelegate
-extension RaceDetailsViewController {
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -67,10 +63,10 @@ extension RaceDetailsViewController {
         let svc = SFSafariViewController(url: url)
         self.present(svc, animated: true, completion: nil)
     }
-}
+
 
 // MARK: - Sorting Methods
-extension RaceDetailsViewController {
+
     /// Sort the tableview by cloth number.
     @objc private func sortClothNumber() {
         let sortedRides = rideDataSource.rides.sorted(by: {  $0.clothNumber < $1.clothNumber })

@@ -13,7 +13,13 @@ class RaceDetailsTableViewCell: UITableViewCell {
     @IBOutlet var clothNumberLabel: UILabel!
     @IBOutlet var formSummaryLabel: UILabel!
     @IBOutlet var oddsLabel: UILabel!
-
+    @IBOutlet var placeBetButton: UIButton! {
+        didSet {
+            placeBetButton.setTitle("Place Bet", for: .normal)
+            placeBetButton.layer.cornerRadius = 3
+        }
+    }
+    
     // MARK: - Properties
 
     var ride: Ride? {

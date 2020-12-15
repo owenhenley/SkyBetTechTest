@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="336" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="336" height="99.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoN-8D-LR8">
-                        <rect key="frame" x="16" y="16" width="304" height="67.5"/>
+                        <rect key="frame" x="16" y="16" width="304" height="68"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cloth number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWT-0d-TRc">
                                 <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
@@ -28,13 +28,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-GV-yZ8">
-                                <rect key="frame" x="0.0" y="24" width="37.5" height="19.5"/>
+                                <rect key="frame" x="0.0" y="24" width="37" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="odds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHZ-Fd-tA2">
-                                <rect key="frame" x="0.0" y="47.5" width="40.5" height="20"/>
+                                <rect key="frame" x="0.0" y="48" width="40.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,11 +45,24 @@
                             <constraint firstItem="BWT-0d-TRc" firstAttribute="leading" secondItem="UoN-8D-LR8" secondAttribute="leading" id="eYh-tM-CLQ"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuV-up-1vw">
+                        <rect key="frame" x="130.5" y="64" width="75" height="28"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="iVT-Ca-AMl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UoN-8D-LR8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H2V-Io-jgB"/>
                     <constraint firstAttribute="bottom" secondItem="UoN-8D-LR8" secondAttribute="bottom" constant="16" id="UJg-Ub-31i"/>
                     <constraint firstItem="UoN-8D-LR8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ZnH-fk-BuG"/>
+                    <constraint firstAttribute="bottom" secondItem="FuV-up-1vw" secondAttribute="bottom" constant="8" id="ZpM-4F-Ztp"/>
+                    <constraint firstItem="FuV-up-1vw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="i1d-6L-exn"/>
                     <constraint firstAttribute="trailing" secondItem="UoN-8D-LR8" secondAttribute="trailing" constant="16" id="xDo-ie-tQg"/>
                 </constraints>
             </tableViewCellContentView>
@@ -58,8 +71,14 @@
                 <outlet property="clothNumberLabel" destination="BWT-0d-TRc" id="oUC-Nh-OWz"/>
                 <outlet property="formSummaryLabel" destination="LeV-GV-yZ8" id="V08-XR-yA9"/>
                 <outlet property="oddsLabel" destination="vHZ-Fd-tA2" id="hWZ-j6-G3s"/>
+                <outlet property="placeBetButton" destination="FuV-up-1vw" id="CUB-PD-zZs"/>
             </connections>
             <point key="canvasLocation" x="149.27536231884059" y="140.625"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
