@@ -31,8 +31,9 @@ class RacesViewController: UITableViewController {
                     ActivityIndicator.stop()
                 }
 
+                let alert = Alert()
                 if let error = error {
-                    Alert.show(error: error,
+                    alert.show(error: error,
                                on: self,
                                title: "Oops",
                                message: "There was an problem fetching the races, please check your internet connection")
@@ -40,7 +41,10 @@ class RacesViewController: UITableViewController {
                 }
 
                 guard let races = races else {
-                    print("Error getting races")
+                    alert.show(error: error,
+                               on: self,
+                               title: "Oops",
+                               message: "There was an problem fetching the races, please check your internet connection")
                     return
                 }
                 self.raceDataSource.races = races
@@ -60,20 +64,8 @@ class RacesViewController: UITableViewController {
         let nib = UINib(nibName: "RaceTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceCell")
         tableView.dataSource = raceDataSource
-        pullToRefresh()
-    }
-
-    /// Implements a pull to refesh feature to the `tableView`.
-    private func pullToRefresh() {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(fetchRaces), for: .valueChanged)
-        tableView.refreshControl = refreshControl
-    }
-
-    /// Reload the table view's data on the main thread.
-    private func reloadDataOnMainThread() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+        self.enablePullToRefresh { control in
+            control.addTarget(self, action: #selector(fetchRaces), for: .valueChanged)
         }
     }
     

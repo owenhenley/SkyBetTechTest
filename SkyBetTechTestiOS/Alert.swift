@@ -7,14 +7,20 @@
 
 import UIKit
 
+protocol CustomAlertProtocol: AnyObject {
+    func reloadTableView(alert: Alert)
+}
+
 class Alert: NSObject {
-    class func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil) {
+    weak var alertDelegate: CustomAlertProtocol!
+    
+    func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil) {
         if let error = error {
             DispatchQueue.main.async {
                 let alertController = UIAlertController(title: "Error",
                                                         message: "\(error.localizedDescription)",
                                                         preferredStyle: .alert)
-                addActions(actions: actions, to: alertController)
+                self.addActions(actions: actions, to: alertController)
                 view.present(alertController, animated: true)
             }
         } else {
@@ -22,7 +28,7 @@ class Alert: NSObject {
                 let alertController = UIAlertController(title: title,
                                                         message: message,
                                                         preferredStyle: .alert)
-                addActions(actions: actions, to: alertController)
+                self.addActions(actions: actions, to: alertController)
                 view.present(alertController, animated: true)
             }
         }
@@ -30,14 +36,18 @@ class Alert: NSObject {
     
     // MARK: - Helpers
     
-    private class func addActions(actions: [UIAlertAction]?, to alertController: UIAlertController) {
+    private func addActions(actions: [UIAlertAction]?, to alertController: UIAlertController) {
         if actions == nil {
-            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+                self.alertDelegate.reloadTableView(alert: self)
+            })
+            alertController.addAction(okAction)
         } else {
             actions?.forEach({ action in
                 alertController.addAction(action)
             })
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
         }
     }
 }

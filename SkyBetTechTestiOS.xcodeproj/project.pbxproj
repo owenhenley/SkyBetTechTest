@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		278098132589230E00931C0B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278098122589230E00931C0B /* UITableView+Ext.swift */; };
 		27DE72FE2588D087003D8C7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* Alert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
 		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		278098122589230E00931C0B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		27DE72FD2588D087003D8C7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */,
 				27DE72FD2588D087003D8C7B /* Alert.swift */,
 				3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */,
+				278098122589230E00931C0B /* UITableView+Ext.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */,
 				3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */,
 				27DE72FE2588D087003D8C7B /* Alert.swift in Sources */,
+				278098132589230E00931C0B /* UITableView+Ext.swift in Sources */,
 				3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */,
 				3EE2B11F228DEF5D000ACBCF /* Ride.swift in Sources */,
 			);

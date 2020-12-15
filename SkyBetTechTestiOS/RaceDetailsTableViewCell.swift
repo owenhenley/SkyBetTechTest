@@ -7,7 +7,7 @@ import UIKit
 import LocalAuthentication
 
 protocol BetAlertProtocol: AnyObject {
-    func showAlert(error: Error?, title: String, message: String, customActions: [UIAlertAction]?)
+    func showAlert(_ alert: Alert, error: Error?, title: String, message: String, customActions: [UIAlertAction]?)
 }
 
 /// Cell class for the RaceDetailsViewController.
@@ -18,7 +18,6 @@ class RaceDetailsTableViewCell: UITableViewCell {
     @IBOutlet var oddsLabel: UILabel!
     @IBOutlet var placeBetButton: UIButton! {
         didSet {
-            placeBetButton.setTitle("Place Bet", for: .normal)
             placeBetButton.layer.cornerRadius = 3
         }
     }
@@ -50,6 +49,7 @@ class RaceDetailsTableViewCell: UITableViewCell {
     @IBAction func placeBet(_ sender: Any) {
         let context = LAContext()
         var error: NSError?
+        let alert = Alert()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
@@ -57,13 +57,17 @@ class RaceDetailsTableViewCell: UITableViewCell {
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     if success {
-                        // Show success
-                        self.alertDelegate.showAlert(error: nil,
+                        self.placeBetButton.setTitle("Bet Placed", for: .disabled)
+                        self.placeBetButton.isEnabled = false
+                        
+                        self.alertDelegate.showAlert(alert,
+                                                     error: nil,
                                                      title: "Your bet is in!",
                                                      message: "May the odds be ever in your favour.",
                                                      customActions: nil)
                     } else {
-                        self.alertDelegate.showAlert(error: nil,
+                        self.alertDelegate.showAlert(alert,
+                                                     error: nil,
                                                      title: "Stop right there",
                                                      message: "Authentication failed. Please try again.",
                                                      customActions: nil)
@@ -75,7 +79,8 @@ class RaceDetailsTableViewCell: UITableViewCell {
                 self.goToDeviceSettings()
             }
             
-            self.alertDelegate.showAlert(error: nil,
+            self.alertDelegate.showAlert(alert,
+                                         error: nil,
                                          title: "Permissions missing",
                                          message: "You need to allow access to FaceID/TouchID to place a bet.",
                                          customActions: [goToSettings])
@@ -91,6 +96,4 @@ class RaceDetailsTableViewCell: UITableViewCell {
             UIApplication.shared.open(settingsUrl)
         }
     }
-    
-    
 }
