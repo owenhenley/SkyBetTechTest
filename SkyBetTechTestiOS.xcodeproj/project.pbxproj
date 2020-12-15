@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27DE72FE2588D087003D8C7B /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* ErrorAlert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
-		3EA697D3229C1E7C007FA700 /* OHActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */; };
+		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
 		3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F588228F3B580099426A /* RaceDataSource.swift */; };
 		3EB7F58B228F40830099426A /* RaceDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */; };
 		3EB7F58E228F43900099426A /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58D228F43900099426A /* AutoLayout.swift */; };
-		3EB7F590228F489B0099426A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F58F228F489B0099426A /* BaseViewController.swift */; };
 		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
-		3ED0CF6F229147E4008BB345 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */; };
 		3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */; };
 		3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B118228DECDF000ACBCF /* NetworkController.swift */; };
 		3EE2B11B228DED34000ACBCF /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11A228DED34000ACBCF /* Race.swift */; };
@@ -44,15 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27DE72FD2588D087003D8C7B /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
-		3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHActivityIndicator.swift; sourceTree = "<group>"; };
+		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3EB7F588228F3B580099426A /* RaceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDataSource.swift; sourceTree = "<group>"; };
 		3EB7F58A228F40820099426A /* RaceDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsDataSource.swift; sourceTree = "<group>"; };
 		3EB7F58D228F43900099426A /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
-		3EB7F58F228F489B0099426A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
-		3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
-		3ED0CF702291482D008BB345 /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyBetTechTestiOSTests.swift; sourceTree = "<group>"; };
 		3EE2B118228DECDF000ACBCF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		3EE2B11A228DED34000ACBCF /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
@@ -106,7 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				3EB7F58D228F43900099426A /* AutoLayout.swift */,
-				3EA697D2229C1E7C007FA700 /* OHActivityIndicator.swift */,
+				3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */,
+				27DE72FD2588D087003D8C7B /* ErrorAlert.swift */,
 				3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */,
 			);
 			name = Utilities;
@@ -173,7 +171,6 @@
 		3EFBB937228CA4770058976C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3EB7F58F228F489B0099426A /* BaseViewController.swift */,
 				3EFBB965228CA7540058976C /* RacesViewController.swift */,
 				3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */,
 				3EB7F587228F3B060099426A /* Supporting Code */,
@@ -216,9 +213,7 @@
 		3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				3ED0CF702291482D008BB345 /* SkyBetTechTestiOSTests-Bridging-Header.h */,
 				3EFBB952228CA4780058976C /* Info.plist */,
-				3ED0CF6E229147E4008BB345 /* BaseViewControllerTests.swift */,
 				3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */,
 			);
 			path = SkyBetTechTestiOSTests;
@@ -269,7 +264,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					3EFBB92C228CA4770058976C = {
@@ -330,19 +325,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EB7F590228F489B0099426A /* BaseViewController.swift in Sources */,
 				3EFBB95F228CA6F80058976C /* RaceTableViewCell.swift in Sources */,
 				3EE2B11B228DED34000ACBCF /* Race.swift in Sources */,
 				3EB7F58B228F40830099426A /* RaceDetailsDataSource.swift in Sources */,
 				3EB7F589228F3B580099426A /* RaceDataSource.swift in Sources */,
 				3EFBB966228CA7540058976C /* RacesViewController.swift in Sources */,
 				3EE2B119228DECDF000ACBCF /* NetworkController.swift in Sources */,
-				3EA697D3229C1E7C007FA700 /* OHActivityIndicator.swift in Sources */,
+				3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */,
 				3EB7F58E228F43900099426A /* AutoLayout.swift in Sources */,
 				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,
 				3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */,
 				3EFBB963228CA70C0058976C /* RaceDetailsTableViewCell.swift in Sources */,
 				3EFBB968228CA7600058976C /* RaceDetailsViewController.swift in Sources */,
+				27DE72FE2588D087003D8C7B /* ErrorAlert.swift in Sources */,
 				3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */,
 				3EE2B11F228DEF5D000ACBCF /* Ride.swift in Sources */,
 			);
@@ -352,7 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED0CF6F229147E4008BB345 /* BaseViewControllerTests.swift in Sources */,
 				3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +407,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -438,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -474,6 +469,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -493,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

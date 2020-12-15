@@ -9,17 +9,6 @@ import XCTest
 
 class SkyBetTechTestiOSTests: XCTestCase {
 
-
-    
-    // Tests at my current place of work uses a combination of libraries that,
-    // auto generate all the mocks and stubs. It is somthing I plan to improve on.
-
-
-
-
-
-
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
