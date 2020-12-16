@@ -22,7 +22,7 @@ class RacesViewController: UITableViewController {
 
     /// Fetch all race data.
     @objc private func fetchRaces() {
-        ActivityIndicator.start(for: self.view)
+        ActivityIndicator.start(for: view)
         DispatchQueue.main.async { [weak self] in
             NetworkController().fetchRaces { races, error in
                 guard let self = self else { return }
