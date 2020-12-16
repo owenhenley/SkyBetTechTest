@@ -7,7 +7,6 @@ import UIKit
 
 class RacesViewController: UITableViewController {
 
-    private var raceDataSource = RaceDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,8 @@ class RacesViewController: UITableViewController {
                                message: "There was an problem fetching the races, please check your internet connection")
                     return
                 }
-                self.raceDataSource.races = races
+                
+                self.races = races
                 self.reloadDataOnMainThread()
             }
 
@@ -63,7 +63,6 @@ class RacesViewController: UITableViewController {
     private func setupTableView() {
         let nib = UINib(nibName: "RaceTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceCell")
-        tableView.dataSource = raceDataSource
         self.enablePullToRefresh { control in
             control.addTarget(self, action: #selector(fetchRaces), for: .valueChanged)
         }
@@ -75,7 +74,7 @@ class RacesViewController: UITableViewController {
         navigationController?.toolbar.tintColor = .black
     }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate & DataSource
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
@@ -83,10 +82,24 @@ class RacesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = RaceDetailsViewController()
-        if let rides = raceDataSource.races[indexPath.row].rides {
+        if let rides = races[indexPath.row].rides {
             detailsVC.rides = rides
 
             navigationController?.pushViewController(detailsVC, animated: true)
         }
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return races.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "raceCell", for: indexPath) as? RaceTableViewCell else {
+            fatalError("Can't use custom cell")
+        }
+
+        cell.race = races[indexPath.row]
+
+        return cell
     }
 }
