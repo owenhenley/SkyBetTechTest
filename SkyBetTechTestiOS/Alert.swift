@@ -7,12 +7,7 @@
 
 import UIKit
 
-protocol CustomAlertProtocol: AnyObject {
-    func reloadTableView(alert: Alert)
-}
-
 class Alert: NSObject {
-    weak var alertDelegate: CustomAlertProtocol!
     
     func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil) {
         if let error = error {
@@ -38,9 +33,7 @@ class Alert: NSObject {
     
     private func addActions(actions: [UIAlertAction]?, to alertController: UIAlertController) {
         if actions == nil {
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
-                self.alertDelegate.reloadTableView(alert: self)
-            })
+            let okAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(okAction)
         } else {
             actions?.forEach({ action in

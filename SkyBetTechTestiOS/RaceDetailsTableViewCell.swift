@@ -4,10 +4,9 @@
 //
 
 import UIKit
-import LocalAuthentication
 
-protocol BetAlertProtocol: AnyObject {
-    func showAlert(_ alert: Alert, error: Error?, title: String, message: String, customActions: [UIAlertAction]?)
+protocol PlaceBetProtocol: AnyObject {
+    func placeBet()
 }
 
 /// Cell class for the RaceDetailsViewController.
@@ -28,7 +27,8 @@ class RaceDetailsTableViewCell: UITableViewCell {
         }
     }
     
-    weak var alertDelegate: BetAlertProtocol!
+    weak var betDelegate: PlaceBetProtocol!
+    var betPlaced = false
     
     // MARK: - Methods
     
@@ -42,58 +42,20 @@ class RaceDetailsTableViewCell: UITableViewCell {
         clothNumberLabel.text = "\(ride.clothNumber)"
         formSummaryLabel.text = ride.formSummary
         oddsLabel.text = ride.currentOdds
+        
+        switch betPlaced {
+        case true:
+            placeBetButton.setTitle("Bet Placed", for: .disabled)
+            placeBetButton.isEnabled = false
+        case false:
+            placeBetButton.setTitle("Place Bet", for: .normal)
+            placeBetButton.isEnabled = true
+        }
     }
     
     // MARK: - Actions
     
     @IBAction func placeBet(_ sender: Any) {
-        let context = LAContext()
-        var error: NSError?
-        let alert = Alert()
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                   localizedReason: "Security check") { [weak self] success, authenticationError in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    if success {
-                        self.placeBetButton.setTitle("Bet Placed", for: .disabled)
-                        self.placeBetButton.isEnabled = false
-                        
-                        self.alertDelegate.showAlert(alert,
-                                                     error: nil,
-                                                     title: "Your bet is in!",
-                                                     message: "May the odds be ever in your favour.",
-                                                     customActions: nil)
-                    } else {
-                        self.alertDelegate.showAlert(alert,
-                                                     error: nil,
-                                                     title: "Stop right there",
-                                                     message: "Authentication failed. Please try again.",
-                                                     customActions: nil)
-                    }
-                }
-            }
-        } else {
-            let goToSettings = UIAlertAction(title: "Settings", style: .default) { _ in
-                self.goToDeviceSettings()
-            }
-            
-            self.alertDelegate.showAlert(alert,
-                                         error: nil,
-                                         title: "Permissions missing",
-                                         message: "You need to allow access to FaceID/TouchID to place a bet.",
-                                         customActions: [goToSettings])
-        }
-    }
-    
-    @objc private func goToDeviceSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
-        
-        if UIApplication.shared.canOpenURL(settingsUrl) {
-            UIApplication.shared.open(settingsUrl)
-        }
+        betDelegate.placeBet()
     }
 }

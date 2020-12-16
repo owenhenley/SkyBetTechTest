@@ -7,6 +7,7 @@ import UIKit
 
 class RacesViewController: UITableViewController {
 
+    private var races = [Race]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,8 +15,8 @@ class RacesViewController: UITableViewController {
         setupNavigation()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchRaces()
     }
 
@@ -23,9 +24,8 @@ class RacesViewController: UITableViewController {
     @objc private func fetchRaces() {
         ActivityIndicator.start(for: view)
         DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             NetworkController().fetchRaces { races, error in
-                guard let self = self else { return }
-                
                 defer {
                     ActivityIndicator.stop()
                 }
@@ -52,7 +52,8 @@ class RacesViewController: UITableViewController {
             }
 
             DispatchQueue.main.async { [weak self] in
-                self?.tableView.refreshControl?.endRefreshing()
+                guard let self = self else { return }
+                self.tableView.refreshControl?.endRefreshing()
             }
         }
     }

@@ -5,11 +5,13 @@
 
 import UIKit
 import SafariServices
+import LocalAuthentication
 
 class RaceDetailsViewController: UITableViewController {
     
     var rides = [Ride]()
     var sortedRides = [Ride]()
+    private var activeBets = [String: Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +51,6 @@ class RaceDetailsViewController: UITableViewController {
     private func setupTableView() {
         let nib = UINib(nibName: "RaceDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceDetailsCell")
-        tableView.dataSource = self
-        enablePullToRefresh { _ in
-            tableView.reloadData()
-        }
     }
     
     
@@ -80,12 +78,16 @@ class RaceDetailsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "raceDetailsCell", for: indexPath) as? RaceDetailsTableViewCell else {
             fatalError("Can't use custom cell")
         }
-        cell.alertDelegate = self
+        cell.betDelegate = self
         
         if !sortedRides.isEmpty {
-            cell.ride = sortedRides[indexPath.row]
+            let ride = sortedRides[indexPath.row]
+            cell.ride = ride
+            cell.betPlaced = activeBets[ride.clothNumber]
         } else {
-            cell.ride = rides[indexPath.row]
+            let ride = rides[indexPath.row]
+            cell.ride = ride
+            cell.betPlaced = activeBets[ride.clothNumber]
         }
         
         return cell
@@ -128,19 +130,45 @@ class RaceDetailsViewController: UITableViewController {
     }
 }
 
-extension RaceDetailsViewController: BetAlertProtocol {
-    func showAlert(_ alert: Alert, error: Error?, title: String, message: String, customActions: [UIAlertAction]?) {
-        alert.show(error: error,
-                   on: self,
-                   title: title,
-                   message: message,
-                   actions: customActions)
+extension RaceDetailsViewController: PlaceBetProtocol {
+    
+    func placeBet() {
+        let context = LAContext()
+        var error: NSError?
+        let alert = Alert()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                   localizedReason: "Security check") { [weak self] success, authenticationError in
+                
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    if success {
+                        alert.show(error: nil, on: self, title: "Your bet is in!", message: "May the odds be ever in your favour.", actions: nil)
+//                        self.betPlaced = true
+                        self.tableView.reloadData()
+                        activeBets[thebet] = true
+                    } else {
+                        alert.show(error: nil, on: self, title: "Stop right there", message: "Authentication failed. Please try again.", actions: nil)
+                    }
+                }
+            }
+        } else {
+            let goToSettings = UIAlertAction(title: "Settings", style: .default) { _ in
+                self.goToDeviceSettings()
+            }
+            
+            alert.show(error: nil, on: self, title: "Permissions missing", message: "You need to allow access to FaceID/TouchID to place a bet.", actions: [goToSettings])
+        }
     }
-}
-
-extension RaceDetailsViewController: CustomAlertProtocol {
-    func reloadTableView(alert: Alert) {
-        alert.alertDelegate = self
-        self.reloadDataOnMainThread()
+    
+    @objc private func goToDeviceSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
     }
 }
