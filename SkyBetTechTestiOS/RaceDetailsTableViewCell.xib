@@ -46,10 +46,10 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuV-up-1vw">
-                        <rect key="frame" x="130.5" y="64" width="75" height="28"/>
+                        <rect key="frame" x="123" y="64" width="90" height="28"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="iVT-Ca-AMl"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="iVT-Ca-AMl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <state key="normal" title="Place Bet">

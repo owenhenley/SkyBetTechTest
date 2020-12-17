@@ -6,7 +6,7 @@
 import UIKit
 
 protocol PlaceBetProtocol: AnyObject {
-    func placeBet()
+    func placeBet(on ride: Ride)
 }
 
 /// Cell class for the RaceDetailsViewController.
@@ -26,9 +26,13 @@ class RaceDetailsTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var betPlaced = false {
+        didSet {
+            updateViews()
+        }
+    }
     
     weak var betDelegate: PlaceBetProtocol!
-    var betPlaced = false
     
     // MARK: - Methods
     
@@ -47,15 +51,19 @@ class RaceDetailsTableViewCell: UITableViewCell {
         case true:
             placeBetButton.setTitle("Bet Placed", for: .disabled)
             placeBetButton.isEnabled = false
+            placeBetButton.backgroundColor = .red
         case false:
             placeBetButton.setTitle("Place Bet", for: .normal)
             placeBetButton.isEnabled = true
+            placeBetButton.backgroundColor = .systemBlue
         }
     }
     
     // MARK: - Actions
     
     @IBAction func placeBet(_ sender: Any) {
-        betDelegate.placeBet()
+        if let ride = ride {
+            betDelegate.placeBet(on: ride)
+        }
     }
 }

@@ -11,7 +11,7 @@ class RaceDetailsViewController: UITableViewController {
     
     var rides = [Ride]()
     var sortedRides = [Ride]()
-    private var activeBets = [String: Bool]()
+    private var activeBets = [Int: Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,11 +83,11 @@ class RaceDetailsViewController: UITableViewController {
         if !sortedRides.isEmpty {
             let ride = sortedRides[indexPath.row]
             cell.ride = ride
-            cell.betPlaced = activeBets[ride.clothNumber]
+            cell.betPlaced = activeBets[ride.clothNumber] ?? false
         } else {
             let ride = rides[indexPath.row]
             cell.ride = ride
-            cell.betPlaced = activeBets[ride.clothNumber]
+            cell.betPlaced = activeBets[ride.clothNumber] ?? false
         }
         
         return cell
@@ -132,7 +132,7 @@ class RaceDetailsViewController: UITableViewController {
 
 extension RaceDetailsViewController: PlaceBetProtocol {
     
-    func placeBet() {
+    func placeBet(on ride: Ride) {
         let context = LAContext()
         var error: NSError?
         let alert = Alert()
@@ -144,10 +144,9 @@ extension RaceDetailsViewController: PlaceBetProtocol {
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     if success {
+                        self.activeBets[ride.clothNumber] = true
+                        self.reloadDataOnMainThread()
                         alert.show(error: nil, on: self, title: "Your bet is in!", message: "May the odds be ever in your favour.", actions: nil)
-//                        self.betPlaced = true
-                        self.tableView.reloadData()
-                        activeBets[thebet] = true
                     } else {
                         alert.show(error: nil, on: self, title: "Stop right there", message: "Authentication failed. Please try again.", actions: nil)
                     }
