@@ -42,7 +42,7 @@ class NetworkControllerTests: XCTestCase {
     }
     
     func testFetchingCorrectRaces() {
-        guard let expectedFinalURL = URL(string: "https://owenhenley.github.io/SkyBetTechTest/techtest.json") else {
+        guard let expectedFinalURL = URL(string: "https://raw.githubusercontent.com/owenhenley/SkyBetTechTest/main/techtest.json") else {
             XCTFail()
             return
         }

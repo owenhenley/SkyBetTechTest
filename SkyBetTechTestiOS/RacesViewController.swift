@@ -25,11 +25,9 @@ class RacesViewController: UITableViewController {
         ActivityIndicator.start(for: view)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            defer { ActivityIndicator.stop() }
+            
             NetworkController().fetchRaces { races, error in
-                defer {
-                    ActivityIndicator.stop()
-                }
-
                 let alert = Alert()
                 if let error = error {
                     alert.show(error: error,

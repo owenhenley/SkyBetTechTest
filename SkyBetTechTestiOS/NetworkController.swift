@@ -30,6 +30,7 @@ class NetworkController {
         // URL
         guard var url = URL(string: baseURL) else { return }
         url.appendPathComponent("SkyBetTechTest")
+        url.appendPathComponent("main")
         url.appendPathComponent("techtest")
         url.appendPathExtension("json")
 
