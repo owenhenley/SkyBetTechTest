@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		278098132589230E00931C0B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278098122589230E00931C0B /* UITableView+Ext.swift */; };
+		27809AAD258BAE2000931C0B /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */; };
 		27DE72FE2588D087003D8C7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* Alert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
 		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		278098122589230E00931C0B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerTests.swift; sourceTree = "<group>"; };
+		27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		27DE72FD2588D087003D8C7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -89,8 +92,6 @@
 		3EB7F58C228F43830099426A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */,
-				27DE72FD2588D087003D8C7B /* Alert.swift */,
 				3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */,
 				278098122589230E00931C0B /* UITableView+Ext.swift */,
 			);
@@ -167,6 +168,8 @@
 		3EFBB93A228CA4770058976C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */,
+				27DE72FD2588D087003D8C7B /* Alert.swift */,
 				3EFBB95D228CA6F80058976C /* RaceTableViewCell.swift */,
 				3EFBB961228CA70C0058976C /* RaceDetailsTableViewCell.swift */,
 				3EE2B120228E002A000ACBCF /* XIBs */,
@@ -201,6 +204,8 @@
 			children = (
 				3EFBB952228CA4780058976C /* Info.plist */,
 				3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */,
+				27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */,
+				27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */,
 			);
 			path = SkyBetTechTestiOSTests;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27809AAD258BAE2000931C0B /* NetworkControllerTests.swift in Sources */,
 				3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

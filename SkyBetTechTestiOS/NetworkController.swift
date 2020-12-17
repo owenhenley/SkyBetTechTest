@@ -5,6 +5,12 @@
 
 import Foundation
 
+protocol URLSessionProtocol {
+   func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessionProtocol { }
+
 /// Class to make all network calls.
 class NetworkController {
 
@@ -19,7 +25,8 @@ class NetworkController {
     /// Fetch all race data.
     ///
     /// - Parameter completion: handle the returned data.
-    func fetchRaces(completion: @escaping ([Race]?, Error?) -> Void) {
+    func fetchRaces(using session: URLSessionProtocol =
+                        URLSession.shared, completion: @escaping ([Race]?, Error?) -> Void) {
         // URL
         guard var url = URL(string: baseURL) else { return }
         url.appendPathComponent("SkyBetTechTest")
@@ -30,7 +37,7 @@ class NetworkController {
         let request = URLRequest(url: url, method: .get)
 
         // Fetch data
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(#file), \(#function), \(#line), Message: \(error). \(error.localizedDescription)")
                 completion(nil, error)
