@@ -6,7 +6,7 @@
 import UIKit
 
 protocol PlaceBetProtocol: AnyObject {
-    func placeBet(on ride: Ride)
+    func placeBet(on ride: RideViewModel)
 }
 
 /// Cell class for the RaceDetailsViewController.
@@ -21,7 +21,7 @@ class RaceDetailsTableViewCell: UITableViewCell {
         }
     }
     
-    var ride: Ride? {
+    var rideViewModel: RideViewModel? {
         didSet {
             updateViews()
         }
@@ -38,7 +38,7 @@ class RaceDetailsTableViewCell: UITableViewCell {
     
     /// Update the cell's labels.
     private func updateViews() {
-        guard let ride = ride else {
+        guard let ride = rideViewModel else {
             print("Error: Ride data not valid.", #file, #function, #line)
             return
         }
@@ -62,7 +62,7 @@ class RaceDetailsTableViewCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func placeBet(_ sender: Any) {
-        if let ride = ride {
+        if let ride = rideViewModel {
             betDelegate.placeBet(on: ride)
         }
     }

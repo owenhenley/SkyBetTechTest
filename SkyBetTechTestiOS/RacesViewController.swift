@@ -7,7 +7,8 @@ import UIKit
 
 class RacesViewController: UITableViewController {
 
-    private var races = [Race]()
+    private var viewModels = [RaceViewModel]()
+//    private let dataSource = RacesViewControllerDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class RacesViewController: UITableViewController {
             guard let self = self else { return }
             defer { ActivityIndicator.stop() }
             
-            NetworkController().fetchRaces { races, error in
+            HorseRacesService().fetchRaces { races, error in
                 let alert = Alert()
                 if let error = error {
                     alert.show(error: error,
@@ -45,7 +46,8 @@ class RacesViewController: UITableViewController {
                     return
                 }
                 
-                self.races = races
+                
+                self.viewModels = races.map({ return RaceViewModel(race: $0) })
                 self.reloadDataOnMainThread()
             }
 
@@ -80,16 +82,17 @@ class RacesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = indexPath.row
         let detailsVC = RaceDetailsViewController()
-        if let rides = races[indexPath.row].rides {
-            detailsVC.rides = rides
+        if let rides = viewModels[selectedRow].rides() {
+            detailsVC.viewModels = rides
 
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return races.count
+        return viewModels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,7 +100,7 @@ class RacesViewController: UITableViewController {
             fatalError("Can't use custom cell")
         }
 
-        cell.race = races[indexPath.row]
+        cell.raceViewModel = viewModels[indexPath.row]
 
         return cell
     }

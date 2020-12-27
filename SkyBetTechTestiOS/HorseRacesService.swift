@@ -1,5 +1,5 @@
 //
-//  NetworkController.swift
+//  HorseRacesService.swift
 //  SkyBetTechTestiOS
 //
 
@@ -12,7 +12,7 @@ protocol URLSessionProtocol {
 extension URLSession: URLSessionProtocol { }
 
 /// Class to make all network calls.
-class NetworkController {
+class HorseRacesService {
 
     // Get the base url from a plist.
     private var baseURL: String {

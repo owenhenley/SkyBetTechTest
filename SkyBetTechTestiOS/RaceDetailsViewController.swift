@@ -9,8 +9,8 @@ import LocalAuthentication
 
 class RaceDetailsViewController: UITableViewController {
     
-    var rides = [Ride]()
-    var sortedRides = [Ride]()
+    var viewModels = [RideViewModel]()
+    var sortedViewModels = [RideViewModel]()
     private var activeBets = [Int: Bool]()
     
     override func viewDidLoad() {
@@ -71,7 +71,7 @@ class RaceDetailsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rides.count
+        return viewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,13 +80,13 @@ class RaceDetailsViewController: UITableViewController {
         }
         cell.betDelegate = self
         
-        if !sortedRides.isEmpty {
-            let ride = sortedRides[indexPath.row]
-            cell.ride = ride
+        if !sortedViewModels.isEmpty {
+            let ride = sortedViewModels[indexPath.row]
+            cell.rideViewModel = ride
             cell.betPlaced = activeBets[ride.clothNumber] ?? false
         } else {
-            let ride = rides[indexPath.row]
-            cell.ride = ride
+            let ride = viewModels[indexPath.row]
+            cell.rideViewModel = ride
             cell.betPlaced = activeBets[ride.clothNumber] ?? false
         }
         
@@ -97,14 +97,14 @@ class RaceDetailsViewController: UITableViewController {
     
     /// Sort the tableview by cloth number.
     @objc private func sortClothNumber() {
-        let sortedRides = rides.sorted(by: {  $0.clothNumber < $1.clothNumber })
+        let sortedRides = viewModels.sorted(by: {  $0.clothNumber < $1.clothNumber })
         replaceRides(with: sortedRides)
     }
     
     /// Sort the tableview by form.
     @objc private func sortFormSummary() {
         // I honestly have no idea what a form summary even is, nor can I seem to accurately find out.
-        let sortedRides = rides.sorted(by: {  $0.formSummary < $1.formSummary })
+        let sortedRides = viewModels.sorted(by: {  $0.formSummary < $1.formSummary })
         replaceRides(with: sortedRides)
     }
     
@@ -113,26 +113,26 @@ class RaceDetailsViewController: UITableViewController {
         // This could possibly be more accurately sorted by sperating the components based on the "/", and then
         // convert the elements into Int's, and then divide them to get an accurate current odds result to sort from.
         // Again, a little unsure on how betting works, but im absolutly open to learning!
-        let sortedRides = rides.sorted(by: {  $0.currentOdds < $1.currentOdds })
+        let sortedRides = viewModels.sorted(by: {  $0.currentOdds < $1.currentOdds })
         replaceRides(with: sortedRides)
     }
     
     /// Reset the tableview to the original order.
     @objc private func resetData() {
-        sortedRides.removeAll()
+        sortedViewModels.removeAll()
         tableView.reloadData()
     }
     
     /// Helper method to set the dataSource's sorted rides.
-    private func replaceRides(with rides: [Ride]) {
-        sortedRides = rides
+    private func replaceRides(with rides: [RideViewModel]) {
+        sortedViewModels = rides
         tableView.reloadData()
     }
 }
 
 extension RaceDetailsViewController: PlaceBetProtocol {
     
-    func placeBet(on ride: Ride) {
+    func placeBet(on ride: RideViewModel) {
         let context = LAContext()
         var error: NSError?
         let alert = Alert()

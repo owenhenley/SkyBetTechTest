@@ -27,12 +27,12 @@ class DataTaskMock: URLSessionDataTask {
 
 class NetworkControllerTests: XCTestCase {
     var session: URLSessionMock!
-    var sut: NetworkController!
+    var sut: HorseRacesService!
     
     override func setUp() {
         super.setUp()
         session = URLSessionMock()
-        sut = NetworkController()
+        sut = HorseRacesService()
     }
     
     override func tearDown() {
@@ -55,6 +55,4 @@ class NetworkControllerTests: XCTestCase {
         
         wait(for: [expectation], timeout: 2)
     }
-    
-  
 }
