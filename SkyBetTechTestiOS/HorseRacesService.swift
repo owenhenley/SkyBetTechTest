@@ -15,7 +15,6 @@ protocol HorseRacesServiceProtocol {
     func fetchRaces(using session: URLSessionProtocol, completion: @escaping ([Race]?, Error?) -> Void)
 }
 
-/// Class to make all network calls.
 class HorseRacesService: HorseRacesServiceProtocol {
 
     // Get the base url from a plist.
@@ -26,22 +25,17 @@ class HorseRacesService: HorseRacesServiceProtocol {
         return value
     }
     
-    /// Fetch all race data.
-    ///
-    /// - Parameter completion: handle the returned data.
-    func fetchRaces(using session: URLSessionProtocol =
-                        URLSession.shared, completion: @escaping ([Race]?, Error?) -> Void) {
-        // URL
+
+    func fetchRaces(using session: URLSessionProtocol, completion: @escaping ([Race]?, Error?) -> Void) {
+        
         guard var url = URL(string: baseURL) else { return }
         url.appendPathComponent("SkyBetTechTest")
         url.appendPathComponent("main")
         url.appendPathComponent("techtest")
         url.appendPathExtension("json")
 
-        // Request
         let request = URLRequest(url: url, method: .get)
 
-        // Fetch data
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(#file), \(#function), \(#line), Message: \(error). \(error.localizedDescription)")

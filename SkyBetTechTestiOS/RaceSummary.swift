@@ -5,7 +5,6 @@
 
 import Foundation
 
-/// An object for all Race Summary Data.
 struct RaceSummary: Codable {
     let name: String
     let courseName: String

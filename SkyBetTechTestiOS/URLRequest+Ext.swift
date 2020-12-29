@@ -15,10 +15,6 @@ extension URLRequest {
         case post = "POST"
         case put = "PUT"
         case delete = "DELETE"
-        case connect = "CONNECT"
-        case options = "OPTIONS"
-        case trace = "TRACE"
-        case patch = "PATCH"
     }
 
     var method: HTTPMethod? {

@@ -54,7 +54,6 @@ class RacesViewController: UITableViewController {
 
     // MARK: - UITableView
     
-    /// Setup the table view
     private func setupTableView() {
         let nib = UINib(nibName: "RaceTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceCell")

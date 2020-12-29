@@ -9,7 +9,6 @@ protocol PlaceBetProtocol: AnyObject {
     func placeBet(on ride: Ride)
 }
 
-/// Cell class for the RaceDetailsViewController.
 class RaceDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet var clothNumberLabel: UILabel!

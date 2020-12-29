@@ -5,7 +5,6 @@
 
 import UIKit
 
-/// Cell class for the RacesViewController.
 class RaceTableViewCell: UITableViewCell {
 
     // MARK: - Outlets

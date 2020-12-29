@@ -40,7 +40,6 @@ class RaceDetailsViewController: UITableViewController {
     
     // MARK: - Methods
     
-    /// Setup the navigation options.
     private func setupNavigation() {
         title = "Race Details"
         navigationItem.largeTitleDisplayMode = .never
@@ -56,7 +55,6 @@ class RaceDetailsViewController: UITableViewController {
         }
     }
     
-    /// Setup the table view.
     private func setupTableView() {
         let nib = UINib(nibName: "RaceDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceDetailsCell")
@@ -103,16 +101,12 @@ class RaceDetailsViewController: UITableViewController {
     
     /// Sort the tableview by form.
     @objc func sortFormSummary() {
-        // I honestly have no idea what a form summary even is, nor can I seem to accurately find out.
         viewModel.sortOrder = .formSummary
         tableView.reloadData()
     }
     
     /// Sort the tableview by odds.
     @objc func sortOdds() {
-        // This could possibly be more accurately sorted by sperating the components based on the "/", and then
-        // convert the elements into Int's, and then divide them to get an accurate current odds result to sort from.
-        // Again, a little unsure on how betting works, but im absolutly open to learning!
         viewModel.sortOrder = .odds
         tableView.reloadData()
     }

@@ -5,7 +5,6 @@
 
 import Foundation
 
-/// An object for all Rider Data.
 struct Ride: Codable {
     let clothNumber: Int
     let formSummary: String
