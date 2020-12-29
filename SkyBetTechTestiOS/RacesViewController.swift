@@ -7,8 +7,9 @@ import UIKit
 
 class RacesViewController: UITableViewController {
 
-    private var viewModels = [RaceViewModel]()
-//    private let dataSource = RacesViewControllerDataSource()
+    var races: [Race] = []
+    
+    private var viewModel = RaceViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,42 +19,27 @@ class RacesViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ActivityIndicator.start(for: view)
         fetchRaces()
     }
-
-    /// Fetch all race data.
-    @objc private func fetchRaces() {
-        ActivityIndicator.start(for: view)
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            defer { ActivityIndicator.stop() }
-            
-            HorseRacesService().fetchRaces { races, error in
-                let alert = Alert()
-                if let error = error {
-                    alert.show(error: error,
-                               on: self,
-                               title: "Oops",
-                               message: "There was an problem fetching the races, please check your internet connection")
-                    return
-                }
-
-                guard let races = races else {
-                    alert.show(error: error,
-                               on: self,
-                               title: "Oops",
-                               message: "There was an problem fetching the races, please check your internet connection")
-                    return
-                }
-                
-                
-                self.viewModels = races.map({ return RaceViewModel(race: $0) })
-                self.reloadDataOnMainThread()
-            }
-
-            DispatchQueue.main.async { [weak self] in
+    
+    @objc func fetchRaces() {
+        viewModel.fetchRaces() { [weak self] result in
+            switch result {
+            case .success(let races):
+                self?.races = races
+            case .failure(let error):
                 guard let self = self else { return }
-                self.tableView.refreshControl?.endRefreshing()
+                let alert = Alert()
+                alert.show(error: error,
+                           on: self,
+                           title: "Oops",
+                           message: "There was an problem fetching the races, please check your internet connection")
+            }
+            DispatchQueue.main.async {
+                ActivityIndicator.stop()
+                self?.tableView.refreshControl?.endRefreshing()
+                self?.tableView.reloadData()
             }
         }
     }
@@ -82,25 +68,26 @@ class RacesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRow = indexPath.row
-        let detailsVC = RaceDetailsViewController()
-        if let rides = viewModels[selectedRow].rides() {
-            detailsVC.viewModels = rides
-
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let detailsVC = RaceDetailsViewController()
+            let selectedRow = indexPath.row
+            let race = races[selectedRow]
+            let rideViewModel = RideViewModel(rides: race.rides)
+            detailsVC.viewModel = rideViewModel
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        races.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "raceCell", for: indexPath) as? RaceTableViewCell else {
             fatalError("Can't use custom cell")
         }
 
-        cell.raceViewModel = viewModels[indexPath.row]
+        cell.race = races[indexPath.row]
 
         return cell
     }

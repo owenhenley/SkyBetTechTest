@@ -9,8 +9,8 @@ import LocalAuthentication
 
 class RaceDetailsViewController: UITableViewController {
     
-    var viewModels = [RideViewModel]()
-    var sortedViewModels = [RideViewModel]()
+    var viewModel: RideViewModel!
+
     private var activeBets = [Int: Bool]()
     
     override func viewDidLoad() {
@@ -52,8 +52,7 @@ class RaceDetailsViewController: UITableViewController {
         let nib = UINib(nibName: "RaceDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "raceDetailsCell")
     }
-    
-    
+
     // MARK: - UITableViewDelegate & DataSource
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,7 +70,7 @@ class RaceDetailsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        viewModel.sortedRides.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,17 +78,9 @@ class RaceDetailsViewController: UITableViewController {
             fatalError("Can't use custom cell")
         }
         cell.betDelegate = self
-        
-        if !sortedViewModels.isEmpty {
-            let ride = sortedViewModels[indexPath.row]
-            cell.rideViewModel = ride
-            cell.betPlaced = activeBets[ride.clothNumber] ?? false
-        } else {
-            let ride = viewModels[indexPath.row]
-            cell.rideViewModel = ride
-            cell.betPlaced = activeBets[ride.clothNumber] ?? false
-        }
-        
+        let ride = viewModel.sortedRides[indexPath.row]
+        cell.ride = ride
+        cell.betPlaced = activeBets[ride.clothNumber] ?? false
         return cell
     }
     
@@ -97,15 +88,15 @@ class RaceDetailsViewController: UITableViewController {
     
     /// Sort the tableview by cloth number.
     @objc private func sortClothNumber() {
-        let sortedRides = viewModels.sorted(by: {  $0.clothNumber < $1.clothNumber })
-        replaceRides(with: sortedRides)
+        viewModel.sortOrder = .clothNumber
+        tableView.reloadData()
     }
     
     /// Sort the tableview by form.
     @objc private func sortFormSummary() {
         // I honestly have no idea what a form summary even is, nor can I seem to accurately find out.
-        let sortedRides = viewModels.sorted(by: {  $0.formSummary < $1.formSummary })
-        replaceRides(with: sortedRides)
+        viewModel.sortOrder = .formSummary
+        tableView.reloadData()
     }
     
     /// Sort the tableview by odds.
@@ -113,26 +104,20 @@ class RaceDetailsViewController: UITableViewController {
         // This could possibly be more accurately sorted by sperating the components based on the "/", and then
         // convert the elements into Int's, and then divide them to get an accurate current odds result to sort from.
         // Again, a little unsure on how betting works, but im absolutly open to learning!
-        let sortedRides = viewModels.sorted(by: {  $0.currentOdds < $1.currentOdds })
-        replaceRides(with: sortedRides)
+        viewModel.sortOrder = .odds
+        tableView.reloadData()
     }
     
     /// Reset the tableview to the original order.
     @objc private func resetData() {
-        sortedViewModels.removeAll()
-        tableView.reloadData()
-    }
-    
-    /// Helper method to set the dataSource's sorted rides.
-    private func replaceRides(with rides: [RideViewModel]) {
-        sortedViewModels = rides
+        viewModel.sortOrder = .none
         tableView.reloadData()
     }
 }
 
 extension RaceDetailsViewController: PlaceBetProtocol {
     
-    func placeBet(on ride: RideViewModel) {
+    func placeBet(on ride: Ride) {
         let context = LAContext()
         var error: NSError?
         let alert = Alert()

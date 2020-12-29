@@ -11,7 +11,6 @@
 		27809AAD258BAE2000931C0B /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */; };
 		27809AB5259791E300931C0B /* RaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AB4259791E300931C0B /* RaceViewModel.swift */; };
 		27809ABB2597957A00931C0B /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809ABA2597957A00931C0B /* RideViewModel.swift */; };
-		27809ABF2597A41F00931C0B /* RacesViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809ABE2597A41F00931C0B /* RacesViewControllerDataSource.swift */; };
 		27DE72FE2588D087003D8C7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* Alert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
 		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
@@ -50,7 +49,6 @@
 		27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		27809AB4259791E300931C0B /* RaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModel.swift; sourceTree = "<group>"; };
 		27809ABA2597957A00931C0B /* RideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
-		27809ABE2597A41F00931C0B /* RacesViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewControllerDataSource.swift; sourceTree = "<group>"; };
 		27DE72FD2588D087003D8C7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			children = (
 				3EFBB965228CA7540058976C /* RacesViewController.swift */,
 				3EFBB967228CA7600058976C /* RaceDetailsViewController.swift */,
-				27809ABE2597A41F00931C0B /* RacesViewControllerDataSource.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 				27809AB5259791E300931C0B /* RaceViewModel.swift in Sources */,
 				3EE2B119228DECDF000ACBCF /* HorseRacesService.swift in Sources */,
 				27809ABB2597957A00931C0B /* RideViewModel.swift in Sources */,
-				27809ABF2597A41F00931C0B /* RacesViewControllerDataSource.swift in Sources */,
 				3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */,
 				3EFBB941228CA4770058976C /* AppDelegate.swift in Sources */,
 				3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */,

@@ -8,23 +8,18 @@
 import UIKit
 
 struct RaceViewModel {
-    let model: Race
-    let raceNameText: String
-    let courseNameText: String
-    let dateText: String
+    let service: HorseRacesService = HorseRacesService()
     
-    init(race: Race) {
-        self.model = race
-        self.raceNameText = model.raceSummary.name
-        self.courseNameText = model.raceSummary.courseName
-        self.dateText = model.raceSummary.date
+    func fetchRaces(completion: @escaping (Result<[Race], Error>) -> Void) {
+        service.fetchRaces { races, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let races = races {
+                completion(.success(races))
+            } else {
+                let error = NSError(domain: "sky", code: -1, userInfo: nil)
+                completion(.failure(error))
+            }
+        }
     }
-    
-    func rides() -> [Ride]? {
-        model.rides
-    }
-    
-//    func raceSummery() -> RaceSummary {
-//        model.raceSummary
-//    }
 }

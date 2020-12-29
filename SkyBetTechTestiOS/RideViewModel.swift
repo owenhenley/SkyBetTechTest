@@ -8,23 +8,30 @@
 import UIKit
 
 struct RideViewModel {
-    var model: Ride
-    var clothNumber: Int
-    var formSummary: String
-    var currentOdds: String
+    private let rides: [Ride]
+    var sortOrder: SortOrder = .none
     
-    init(ride: Ride) {
-        self.model = ride
-        self.clothNumber = ride.clothNumber
-        self.formSummary = ride.formSummary
-        self.currentOdds = ride.currentOdds
+    var sortedRides: [Ride] {
+        switch sortOrder {
+        case .none:
+            return rides
+        case .clothNumber:
+            return rides.sorted { $0.clothNumber < $1.clothNumber }
+        case .formSummary:
+            return rides.sorted { $0.formSummary < $1.formSummary }
+        case .odds:
+            return rides.sorted { $0.sortableOdds < $1.sortableOdds }
+        }
     }
     
-    var number: Int {
-        model.clothNumber
+    init(rides: [Ride]) {
+        self.rides = rides
     }
-    
-//    mutating func updateRides(_ rides: [Ride]) -> RideViewModel {
-//        model = rides.map({return RideViewModel(ride: $0)})
-//    }
+}
+
+enum SortOrder {
+    case clothNumber
+    case formSummary
+    case odds
+    case none
 }

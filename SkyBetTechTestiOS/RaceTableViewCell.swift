@@ -16,7 +16,7 @@ class RaceTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     
-    var raceViewModel: RaceViewModel? {
+    var race: Race? {
         didSet {
             updateViews()
         }
@@ -26,12 +26,12 @@ class RaceTableViewCell: UITableViewCell {
 
     /// Update the cell's labels.
     private func updateViews() {
-        guard let raceViewModel = raceViewModel else {
+        guard let race = race else {
             print("Error: Race data not valid.", #file, #function, #line)
             return
         }
-        raceNameLabel.text = raceViewModel.raceNameText
-        courseNameLabel.text = raceViewModel.courseNameText
-        raceDateLabel.text = raceViewModel.dateText
+        raceNameLabel.text = race.raceSummary.name
+        courseNameLabel.text = race.raceSummary.courseName
+        raceDateLabel.text = race.raceSummary.date
     }
 }
