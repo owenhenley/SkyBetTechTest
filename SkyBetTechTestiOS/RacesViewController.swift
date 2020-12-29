@@ -8,9 +8,17 @@ import UIKit
 class RacesViewController: UITableViewController {
 
     var races: [Race] = []
+    private var viewModel: RaceViewModel = RaceViewModel()
     
-    private var viewModel = RaceViewModel()
-
+    init(viewModel: RaceViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -69,10 +77,10 @@ class RacesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let indexPath = tableView.indexPathForSelectedRow {
-            let detailsVC = RaceDetailsViewController()
             let selectedRow = indexPath.row
             let race = races[selectedRow]
             let rideViewModel = RideViewModel(rides: race.rides)
+            let detailsVC = RaceDetailsViewController(viewModel: rideViewModel)
             detailsVC.viewModel = rideViewModel
             navigationController?.pushViewController(detailsVC, animated: true)
         }

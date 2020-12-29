@@ -9,7 +9,7 @@ import UIKit
 
 class Alert: NSObject {
     
-    func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil) {
+    func show(error: Error?, on view: UIViewController, title: String, message: String, actions: [UIAlertAction]? = nil, completion: (() -> ())? = nil) {
         if let error = error {
             DispatchQueue.main.async {
                 let alertController = UIAlertController(title: "Error",
@@ -17,6 +17,10 @@ class Alert: NSObject {
                                                         preferredStyle: .alert)
                 self.addActions(actions: actions, to: alertController)
                 view.present(alertController, animated: true)
+                
+                if let completion = completion {
+                    completion()
+                }
             }
         } else {
             DispatchQueue.main.async {
@@ -25,6 +29,10 @@ class Alert: NSObject {
                                                         preferredStyle: .alert)
                 self.addActions(actions: actions, to: alertController)
                 view.present(alertController, animated: true)
+                
+                if let completion = completion {
+                    completion()
+                }
             }
         }
     }

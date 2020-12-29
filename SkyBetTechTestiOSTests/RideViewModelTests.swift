@@ -6,27 +6,55 @@
 //
 
 import XCTest
+@testable import SkyBetTechTestiOS
 
 class RideViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testRideViewModel() {
+        let rides: [Ride] = [
+            Ride(clothNumber: 47, formSummary: "456789", currentOdds: "4/2"),
+            Ride(clothNumber: 44, formSummary: "456789", currentOdds: "4/4")
+        ]
+        let rideViewModel = RideViewModel(rides: rides)
+        
+        XCTAssertEqual(rides.first?.clothNumber, rideViewModel.sortedRides.first?.clothNumber)
+        XCTAssertEqual(rides.first?.currentOdds, rideViewModel.sortedRides.first?.currentOdds)
+        XCTAssertEqual(rides.first?.formSummary, rideViewModel.sortedRides.first?.formSummary)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testSortingClothNumber() {
+        let rides: [Ride] = [
+            Ride(clothNumber: 47, formSummary: "556789", currentOdds: "4/2"),
+            Ride(clothNumber: 44, formSummary: "456789", currentOdds: "4/4")
+        ]
+        let rideViewModel = RideViewModel(rides: rides)
+        let viewController = RaceDetailsViewController(viewModel: rideViewModel)
+        viewController.sortClothNumber()
+        
+        XCTAssertEqual(rides.first?.clothNumber, rideViewModel.sortedRides.first?.clothNumber)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSortingFormSummary() {
+        let rides: [Ride] = [
+            Ride(clothNumber: 47, formSummary: "556789", currentOdds: "4/2"),
+            Ride(clothNumber: 44, formSummary: "456789", currentOdds: "4/4")
+        ]
+        let rideViewModel = RideViewModel(rides: rides)
+        let viewController = RaceDetailsViewController(viewModel: rideViewModel)
+        viewController.sortFormSummary()
+        
+        XCTAssertEqual(rides.first?.formSummary, rideViewModel.sortedRides.first?.formSummary)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSortingOdds() {
+        let rides: [Ride] = [
+            Ride(clothNumber: 47, formSummary: "556789", currentOdds: "4/2"),
+            Ride(clothNumber: 44, formSummary: "456789", currentOdds: "4/4")
+        ]
+        let rideViewModel = RideViewModel(rides: rides)
+        let viewController = RaceDetailsViewController(viewModel: rideViewModel)
+        viewController.sortOdds()
+        
+        XCTAssertEqual(rides.first?.currentOdds, rideViewModel.sortedRides.first?.currentOdds)
     }
-
 }

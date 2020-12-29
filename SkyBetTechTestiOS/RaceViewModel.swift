@@ -5,9 +5,10 @@
 //  Created by Owen Henley on 26/12/2020.
 //
 
-import UIKit
+import Foundation
 
-struct RaceViewModel {
+class RaceViewModel {
+    
     let service: HorseRacesService = HorseRacesService()
     
     func fetchRaces(completion: @escaping (Result<[Race], Error>) -> Void) {

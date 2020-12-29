@@ -9,9 +9,18 @@ import LocalAuthentication
 
 class RaceDetailsViewController: UITableViewController {
     
-    var viewModel: RideViewModel!
+    var viewModel: RideViewModel
 
     private var activeBets = [Int: Bool]()
+    
+    init(viewModel: RideViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,20 +96,20 @@ class RaceDetailsViewController: UITableViewController {
     // MARK: - Sorting Methods
     
     /// Sort the tableview by cloth number.
-    @objc private func sortClothNumber() {
+    @objc func sortClothNumber() {
         viewModel.sortOrder = .clothNumber
         tableView.reloadData()
     }
     
     /// Sort the tableview by form.
-    @objc private func sortFormSummary() {
+    @objc func sortFormSummary() {
         // I honestly have no idea what a form summary even is, nor can I seem to accurately find out.
         viewModel.sortOrder = .formSummary
         tableView.reloadData()
     }
     
     /// Sort the tableview by odds.
-    @objc private func sortOdds() {
+    @objc func sortOdds() {
         // This could possibly be more accurately sorted by sperating the components based on the "/", and then
         // convert the elements into Int's, and then divide them to get an accurate current odds result to sort from.
         // Again, a little unsure on how betting works, but im absolutly open to learning!

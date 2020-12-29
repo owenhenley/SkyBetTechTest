@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27042340259B4AFA006A63D7 /* RideViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */; };
+		2704234E259B5098006A63D7 /* RaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704234D259B5098006A63D7 /* RaceViewModelTests.swift */; };
+		27042352259B54DB006A63D7 /* MockRaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27042351259B54DB006A63D7 /* MockRaceViewModel.swift */; };
 		278098132589230E00931C0B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278098122589230E00931C0B /* UITableView+Ext.swift */; };
-		27809AAD258BAE2000931C0B /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */; };
+		27809AAD258BAE2000931C0B /* HorseRacesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */; };
 		27809AB5259791E300931C0B /* RaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AB4259791E300931C0B /* RaceViewModel.swift */; };
 		27809ABB2597957A00931C0B /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809ABA2597957A00931C0B /* RideViewModel.swift */; };
+		27B24E77259B5C2B00B3F946 /* AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B24E76259B5C2B00B3F946 /* AlertTests.swift */; };
 		27DE72FE2588D087003D8C7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* Alert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
 		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
 		3EB9C66C228DDD8A00EFE7A9 /* BaseURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */; };
-		3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */; };
 		3EE2B119228DECDF000ACBCF /* HorseRacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B118228DECDF000ACBCF /* HorseRacesService.swift */; };
 		3EE2B11B228DED34000ACBCF /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11A228DED34000ACBCF /* Race.swift */; };
 		3EE2B11D228DEF46000ACBCF /* RaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */; };
@@ -44,16 +47,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModelTests.swift; sourceTree = "<group>"; };
+		2704234D259B5098006A63D7 /* RaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModelTests.swift; sourceTree = "<group>"; };
+		27042351259B54DB006A63D7 /* MockRaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRaceViewModel.swift; sourceTree = "<group>"; };
 		278098122589230E00931C0B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
-		27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerTests.swift; sourceTree = "<group>"; };
+		27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRacesServiceTests.swift; sourceTree = "<group>"; };
 		27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		27809AB4259791E300931C0B /* RaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModel.swift; sourceTree = "<group>"; };
 		27809ABA2597957A00931C0B /* RideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
+		27B24E76259B5C2B00B3F946 /* AlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTests.swift; sourceTree = "<group>"; };
 		27DE72FD2588D087003D8C7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3EB9C66B228DDD8A00EFE7A9 /* BaseURL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BaseURL.plist; sourceTree = "<group>"; };
-		3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyBetTechTestiOSTests.swift; sourceTree = "<group>"; };
 		3EE2B118228DECDF000ACBCF /* HorseRacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRacesService.swift; sourceTree = "<group>"; };
 		3EE2B11A228DED34000ACBCF /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		3EE2B11C228DEF46000ACBCF /* RaceSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSummary.swift; sourceTree = "<group>"; };
@@ -93,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27042355259B54DE006A63D7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				27042351259B54DB006A63D7 /* MockRaceViewModel.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		27809AB32597716D00931C0B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,10 +230,13 @@
 		3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				27042355259B54DE006A63D7 /* Mocks */,
 				27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */,
 				3EFBB952228CA4780058976C /* Info.plist */,
-				3ED0CF7122914C8B008BB345 /* SkyBetTechTestiOSTests.swift */,
-				27809AAC258BAE2000931C0B /* NetworkControllerTests.swift */,
+				27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */,
+				2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */,
+				2704234D259B5098006A63D7 /* RaceViewModelTests.swift */,
+				27B24E76259B5C2B00B3F946 /* AlertTests.swift */,
 			);
 			path = SkyBetTechTestiOSTests;
 			sourceTree = "<group>";
@@ -352,8 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27809AAD258BAE2000931C0B /* NetworkControllerTests.swift in Sources */,
-				3ED0CF7222914C8B008BB345 /* SkyBetTechTestiOSTests.swift in Sources */,
+				27B24E77259B5C2B00B3F946 /* AlertTests.swift in Sources */,
+				27809AAD258BAE2000931C0B /* HorseRacesServiceTests.swift in Sources */,
+				2704234E259B5098006A63D7 /* RaceViewModelTests.swift in Sources */,
+				27042352259B54DB006A63D7 /* MockRaceViewModel.swift in Sources */,
+				27042340259B4AFA006A63D7 /* RideViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  NetworkControllerTests.swift
+//  HorseRacesServiceTests.swift
 //  SkyBetTechTestiOSTests
 //
 //  Created by Owen Henley on 17/12/2020.
@@ -25,7 +25,7 @@ class DataTaskMock: URLSessionDataTask {
    override func resume() { }
 }
 
-class NetworkControllerTests: XCTestCase {
+class HorseRacesServiceTests: XCTestCase {
     var session: URLSessionMock!
     var sut: HorseRacesService!
     
