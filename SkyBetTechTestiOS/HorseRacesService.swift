@@ -11,8 +11,12 @@ protocol URLSessionProtocol {
 
 extension URLSession: URLSessionProtocol { }
 
+protocol HorseRacesServiceProtocol {
+    func fetchRaces(using session: URLSessionProtocol, completion: @escaping ([Race]?, Error?) -> Void)
+}
+
 /// Class to make all network calls.
-class HorseRacesService {
+class HorseRacesService: HorseRacesServiceProtocol {
 
     // Get the base url from a plist.
     private var baseURL: String {

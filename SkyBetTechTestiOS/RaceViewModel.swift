@@ -9,10 +9,15 @@ import Foundation
 
 class RaceViewModel {
     
-    let service: HorseRacesService = HorseRacesService()
+    var service: HorseRacesServiceProtocol
+    private let urlSession = URLSession.shared
+    
+    init(service: HorseRacesServiceProtocol = HorseRacesService()) {
+        self.service = service
+    }
     
     func fetchRaces(completion: @escaping (Result<[Race], Error>) -> Void) {
-        service.fetchRaces { races, error in
+        service.fetchRaces(using: urlSession) { races, error in
             if let error = error {
                 completion(.failure(error))
             } else if let races = races {

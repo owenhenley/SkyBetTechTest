@@ -8,30 +8,14 @@
 import XCTest
 @testable import SkyBetTechTestiOS
 
-class URLSessionMock: URLSessionProtocol {
-    var lastRequest: URLRequest?
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        defer {
-            completionHandler(nil, nil, nil)
-        }
-        
-        lastRequest = request
-        let datatask = DataTaskMock()
-        return datatask
-    }
-}
-
-class DataTaskMock: URLSessionDataTask {
-   override func resume() { }
-}
-
 class HorseRacesServiceTests: XCTestCase {
-    var session: URLSessionMock!
+    
+    var session: MockURLSession!
     var sut: HorseRacesService!
     
     override func setUp() {
         super.setUp()
-        session = URLSessionMock()
+        session = MockURLSession()
         sut = HorseRacesService()
     }
     

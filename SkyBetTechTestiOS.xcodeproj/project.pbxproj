@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		27042340259B4AFA006A63D7 /* RideViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */; };
 		2704234E259B5098006A63D7 /* RaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704234D259B5098006A63D7 /* RaceViewModelTests.swift */; };
-		27042352259B54DB006A63D7 /* MockRaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27042351259B54DB006A63D7 /* MockRaceViewModel.swift */; };
 		278098132589230E00931C0B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278098122589230E00931C0B /* UITableView+Ext.swift */; };
 		27809AAD258BAE2000931C0B /* HorseRacesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */; };
 		27809AB5259791E300931C0B /* RaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809AB4259791E300931C0B /* RaceViewModel.swift */; };
 		27809ABB2597957A00931C0B /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27809ABA2597957A00931C0B /* RideViewModel.swift */; };
 		27B24E77259B5C2B00B3F946 /* AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B24E76259B5C2B00B3F946 /* AlertTests.swift */; };
+		27B24E7D259B78DF00B3F946 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B24E7C259B78DE00B3F946 /* MockService.swift */; };
+		27B24E81259B7C1F00B3F946 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B24E80259B7C1F00B3F946 /* MockURLSession.swift */; };
 		27DE72FE2588D087003D8C7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE72FD2588D087003D8C7B /* Alert.swift */; };
 		3E3DC602229DD76400FDA93F /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */; };
 		3EA697D3229C1E7C007FA700 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */; };
@@ -49,13 +50,14 @@
 /* Begin PBXFileReference section */
 		2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModelTests.swift; sourceTree = "<group>"; };
 		2704234D259B5098006A63D7 /* RaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModelTests.swift; sourceTree = "<group>"; };
-		27042351259B54DB006A63D7 /* MockRaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRaceViewModel.swift; sourceTree = "<group>"; };
 		278098122589230E00931C0B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRacesServiceTests.swift; sourceTree = "<group>"; };
 		27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyBetTechTestiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		27809AB4259791E300931C0B /* RaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModel.swift; sourceTree = "<group>"; };
 		27809ABA2597957A00931C0B /* RideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
 		27B24E76259B5C2B00B3F946 /* AlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTests.swift; sourceTree = "<group>"; };
+		27B24E7C259B78DE00B3F946 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		27B24E80259B7C1F00B3F946 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		27DE72FD2588D087003D8C7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3E3DC601229DD76400FDA93F /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		3EA697D2229C1E7C007FA700 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -102,7 +104,8 @@
 		27042355259B54DE006A63D7 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				27042351259B54DB006A63D7 /* MockRaceViewModel.swift */,
+				27B24E7C259B78DE00B3F946 /* MockService.swift */,
+				27B24E80259B7C1F00B3F946 /* MockURLSession.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -230,9 +233,9 @@
 		3EFBB94F228CA4780058976C /* SkyBetTechTestiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				27042355259B54DE006A63D7 /* Mocks */,
 				27809AB0258BB17900931C0B /* SkyBetTechTestiOSTests-Bridging-Header.h */,
 				3EFBB952228CA4780058976C /* Info.plist */,
+				27042355259B54DE006A63D7 /* Mocks */,
 				27809AAC258BAE2000931C0B /* HorseRacesServiceTests.swift */,
 				2704233F259B4AFA006A63D7 /* RideViewModelTests.swift */,
 				2704234D259B5098006A63D7 /* RaceViewModelTests.swift */,
@@ -372,8 +375,9 @@
 				27B24E77259B5C2B00B3F946 /* AlertTests.swift in Sources */,
 				27809AAD258BAE2000931C0B /* HorseRacesServiceTests.swift in Sources */,
 				2704234E259B5098006A63D7 /* RaceViewModelTests.swift in Sources */,
-				27042352259B54DB006A63D7 /* MockRaceViewModel.swift in Sources */,
+				27B24E81259B7C1F00B3F946 /* MockURLSession.swift in Sources */,
 				27042340259B4AFA006A63D7 /* RideViewModelTests.swift in Sources */,
+				27B24E7D259B78DF00B3F946 /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
